@@ -1,9 +1,5 @@
-00:09:02 **** Incremental Build of configuration Debug for project HW1 ****
+00:36:29 **** Incremental Build of configuration Debug for project HW1 ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW1.o" "..\\src\\HW1.cpp" 
 g++ -o HW1.exe "src\\HW1.o" 
 Info: Nothing to build for HW1
-00:09:42 **** Incremental Build of configuration Debug for project HW1 ****
-Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW1.o" "..\\src\\HW1.cpp" 
-g++ -o HW1.exe "src\\HW1.o" 
+Info: Nothing to build for HW1

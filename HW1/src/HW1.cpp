@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
@@ -30,6 +31,7 @@ int countGreen=3,countYellow=7,countOrange=5;
 string colors[3] = {"Green","Yellow","Orange"};
 
 int main() {
+	srand(time(NULL));
 	bool result = false; // false is lose, true is win for player 1
 
 	printBoard();
@@ -168,6 +170,7 @@ enum screen cpuPhase()
 	}
 	cout << "CPU chooses "<< colors[colorCode] <<" color" << endl;
 	cout << "CPU removes " << num << endl;
+	printBoard();
 	state = PLAYER;
 	return state;
 }
