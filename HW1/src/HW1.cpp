@@ -149,27 +149,51 @@ enum screen cpuPhase()
 	int valid=0;
 	int num;
 	int colorCode;  // 0- Green, 1- Yellow, 2- Orange
-	while(!valid){
-		cout << "CPU's turn" << endl;
-		colorCode=randint(3)-1;
-		if(colorCode==0 && countGreen>0){ //it's green
-			num=randint(countGreen);
-			countGreen=countGreen-num;
-			valid=1;
+	cout << "CPU's turn" << endl;
+
+	if((countGreen^countYellow^countOrange)==0){ // the player played the winning move!
+		while(!valid){
+			colorCode=randint(3)-1;
+			if(colorCode==0 && countGreen>0){ //it's green
+				num=randint(countGreen);
+				countGreen=countGreen-num;
+				valid=1;
+			}
+			if(colorCode==1 && countYellow>0){ //it's yellow
+				num=randint(countYellow);
+				countYellow=countYellow-num;
+				valid=1;
+			}
+			if(colorCode==2 && countOrange>0){ //it's Orange
+				num=randint(countOrange);
+				countOrange=countOrange-num;
+				valid=1;
+			}
 		}
-		if(colorCode==1 && countYellow>0){ //it's yellow
-			num=randint(countYellow);
-			countYellow=countYellow-num;
-			valid=1;
+		cout << "CPU chooses "<< colors[colorCode] <<" color" << endl;
+		cout << "CPU removes " << num << endl;
+	}
+
+	else{ // make a winning move
+		if((countGreen^countYellow) < countOrange){ // remove from Orange pile
+
+			cout << "CPU chooses Orange color" << endl;
+			cout << "CPU removes " << countOrange-(countGreen^countYellow) << endl;
+			countOrange=countGreen^countYellow;
 		}
-		if(colorCode==2 && countOrange>0){ //it's Orange
-			num=randint(countOrange);
-			countOrange=countOrange-num;
-			valid=1;
+		else if((countGreen^countOrange) < countYellow){ // remove from Yellow pile
+
+			cout << "CPU chooses Yellow color" << endl;
+			cout << "CPU removes " << countYellow-(countGreen^countOrange) << endl;
+			countYellow=countGreen^countOrange;
+		}
+		else if((countOrange^countYellow) < countGreen){ // remove from Green pile
+
+			cout << "CPU chooses Green color" << endl;
+			cout << "CPU removes " << countGreen-(countOrange^countYellow) << endl;
+			countGreen=countOrange^countYellow;
 		}
 	}
-	cout << "CPU chooses "<< colors[colorCode] <<" color" << endl;
-	cout << "CPU removes " << num << endl;
 	printBoard();
 	state = PLAYER;
 	return state;
