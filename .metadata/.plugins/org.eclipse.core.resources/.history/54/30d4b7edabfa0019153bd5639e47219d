@@ -201,10 +201,10 @@ enum screen cpuPhase()
 enum screen resultsPhase(bool res)
 {
 	if(res == false){
-		cout << "CPU WINS!!!" << endl;
+		cout << "You Lose" << endl;
 	}
 	else if (res == true){
-		cout << "PLAYER WINS!!!" << endl;
+		cout << "You Win" << endl;
 	}
 	state = RESULTS;
 	return state;

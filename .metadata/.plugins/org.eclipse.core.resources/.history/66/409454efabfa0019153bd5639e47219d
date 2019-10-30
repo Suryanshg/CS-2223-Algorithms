@@ -204,7 +204,7 @@ enum screen resultsPhase(bool res)
 		cout << "CPU WINS!!!" << endl;
 	}
 	else if (res == true){
-		cout << "PLAYER WINS!!!" << endl;
+		cout << "PLAYER WINS" << endl;
 	}
 	state = RESULTS;
 	return state;

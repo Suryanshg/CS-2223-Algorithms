@@ -412,3 +412,8 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.help.base 2 0 2019-10-28 19:37:05.052
 !MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.tracecompass.doc.dev_5.1.0.201909110900 [485]'. The index should be rebuilt with Lucene 8.0.0
+
+!ENTRY org.eclipse.core.resources 2 2 2019-10-29 20:31:34.709
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-10-29 20:31:34.709
+!MESSAGE The project description file (.project) for 'Test' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
