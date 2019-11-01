@@ -66,6 +66,9 @@ int main() {
 	}
 }
 
+/*
+ * The board gets printed out to the Console
+ */
 void printBoard(){
 	int i;
 	for(i=0;i<countGreen;i++){
@@ -82,6 +85,11 @@ void printBoard(){
 	cout<<"\n";
 
 }
+
+/*
+ * First phase of the game where the user specifies who moves
+ * first.
+ */
 enum screen beginningPhase()
 {
 
@@ -97,6 +105,10 @@ enum screen beginningPhase()
 	}
 	return state;
 }
+
+/*
+ * Phase of the game where the user decides what color to remove and how many colors to remove
+ */
 enum screen playerPhase()
 {
 	string color;
@@ -144,6 +156,11 @@ enum screen playerPhase()
 	state = CPU;
 	return state;
 }
+/*
+ * Phase of the game where the CPU decides what color to remove and how many. If player makes
+ * a winning move, the CPU moves randomly; Otherwise, the CPU plays the winning
+ * move with the correct color.
+ */
 enum screen cpuPhase()
 {
 	int valid=0;
@@ -198,6 +215,10 @@ enum screen cpuPhase()
 	state = PLAYER;
 	return state;
 }
+/*
+ * Display the result of the game. If the User picks the last color, the user wins; Otherwise,
+ * the CPU wins.
+ */
 enum screen resultsPhase(bool res)
 {
 	if(res == false){
@@ -209,6 +230,9 @@ enum screen resultsPhase(bool res)
 	state = RESULTS;
 	return state;
 }
+/*
+ * chose a random number in the range from 1 to the max number
+ */
 int randint(int max){
 	return (rand() % max) + 1;
 }
