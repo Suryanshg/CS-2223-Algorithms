@@ -8,3 +8,90 @@ Info: Internal Builder is used for build
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW1.o" "..\\src\\HW1.cpp" 
 g++ -o HW1.exe "src\\HW1.o" 
 Info: Nothing to build for HW1
+01:26:16 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+01:26:28 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+01:26:42 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+Info: Nothing to build for HW2
+01:29:41 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int main()':
+..\src\HW2.cpp:50:7: warning: unused variable 'i' [-Wunused-variable]
+   50 |   int i = 0;
+      |       ^
+..\src\HW2.cpp:51:7: warning: unused variable 'SurySquare' [-Wunused-variable]
+   51 |   int SurySquare[16] = {1, 14, 14, 4, 11, 7, 6, 9, 8 , 10, 10, 5, 13, 2, 3, 15};
+      |       ^~~~~~~~~~
+..\src\HW2.cpp:52:7: warning: unused variable 'j' [-Wunused-variable]
+   52 |   int j = 5;
+      |       ^
+..\src\HW2.cpp:53:7: warning: unused variable 's' [-Wunused-variable]
+   53 |   int s = 7;
+      |       ^
+g++ -o HW2.exe "src\\HW2.o" 
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file HW2.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+01:29:58 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -o HW2.exe "src\\HW2.o" 
+Info: Nothing to build for HW2
+01:31:19 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int main()':
+..\src\HW2.cpp:54:7: warning: unused variable 'i' [-Wunused-variable]
+   54 |   int i = 0;
+      |       ^
+..\src\HW2.cpp:55:7: warning: unused variable 'SurySquare' [-Wunused-variable]
+   55 |   int SurySquare[16] = {1, 14, 14, 4, 11, 7, 6, 9, 8 , 10, 10, 5, 13, 2, 3, 15};
+      |       ^~~~~~~~~~
+..\src\HW2.cpp:56:7: warning: unused variable 'j' [-Wunused-variable]
+   56 |   int j = 5;
+      |       ^
+..\src\HW2.cpp:57:7: warning: unused variable 's' [-Wunused-variable]
+   57 |   int s = 7;
+      |       ^
+..\src\HW2.cpp:19:6: warning: unused variable 'i' [-Wunused-variable]
+   19 |  int i = 0;
+      |      ^
+..\src\HW2.cpp:20:6: warning: unused variable 'SurySquare' [-Wunused-variable]
+   20 |  int SurySquare[16] = {1, 14, 14, 4, 11, 7, 6, 9, 8 , 10, 10, 5, 13, 2, 3, 15};
+      |      ^~~~~~~~~~
+..\src\HW2.cpp:21:6: warning: unused variable 'j' [-Wunused-variable]
+   21 |  int j = 5;
+      |      ^
+..\src\HW2.cpp:22:6: warning: unused variable 's' [-Wunused-variable]
+   22 |  int s = 7;
+      |      ^
+g++ -o HW2.exe "src\\HW2.o" 
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file HW2.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+01:33:47 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -o HW2.exe "src\\HW2.o" 
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file HW2.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+01:33:54 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -o HW2.exe "src\\HW2.o" 
+01:44:40 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+01:45:12 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+01:49:34 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
