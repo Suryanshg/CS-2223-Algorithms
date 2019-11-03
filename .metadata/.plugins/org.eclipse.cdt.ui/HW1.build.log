@@ -1,1 +1,7 @@
-Info: Nothing to build for HW1
+00:46:20 **** Rebuild of configuration Debug for project HW1 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW1.o" "..\\src\\HW1.cpp" 
+g++ -o HW1.exe "src\\HW1.o" 
+
+00:46:23 Build Finished. 0 errors, 0 warnings. (took 3s.410ms)
+
