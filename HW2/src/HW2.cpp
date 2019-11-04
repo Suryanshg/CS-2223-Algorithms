@@ -8,10 +8,17 @@
 #include <iostream>
 #include <time.h>
 #include <string.h>
+#include <vector>
+#include <cmath>
 
 using namespace std;
 
 int Lucas(int n);
+
+vector<vector<int>> powerSet; // vector of combinations
+
+int sum33(int n);
+int comboSum(int maxSum);
 
 int main() {
 	string input;
@@ -45,34 +52,40 @@ int main() {
 		}
 	}
 	else if(input == "SMS"){
-		int i = 0;
-		int j = 0;
-		int k = 0;
-		int l = 0;
-		int count = 0;
-		int combinations = 0;
-		int SurySquare[16] = {1, 14, 14, 4, 11, 7, 6, 9, 8 , 10, 10, 5, 13, 2, 3, 15};
+		int MagicSquare[16] = {1, 14, 14, 4, 11, 7, 6, 9, 8 , 10, 10, 5, 13, 2, 3, 15};
 		cout<<"The Suribach's magic square is: \n";
-		for(i=0;i<16;i++){
-			cout<<SurySquare[i]<<" ";
+		for(int i=0;i<16;i++){ // prints the magic square
+			cout<<MagicSquare[i]<<" ";
 			if ((i+1)%4==0){
 				cout<<"\n";
 			}
 		}
-		for(i = 0; i<=12; i++){
-			for((j = (i+1)); j<=13; j++){
-				for((k = (j+1)); k<=14; k++){
-					for((l = (k+1)); l<=15; l++){
-						combinations++;
-						if((SurySquare[i] + SurySquare[j] + SurySquare[k] + SurySquare[l]) == 33){
-							count++;
-						}
-					}
+
+
+		int N=pow(2,16);
+		for(int i=0;i<N;i++){
+			vector<int> subSet;
+			for(int j=0;j<16;j++){
+				if(i & (1<<j)){
+					subSet.push_back(MagicSquare[j]);
 				}
 			}
+			powerSet.push_back(subSet);
 		}
-		cout<<"Combinations: "<<combinations<<"\n";
-		cout<<"The number of 4 sum combinations for 33 is :"<<count<<"\n";
+
+		for(int i=1;i<=16;i++){
+			cout<< "The combinations of "<<i<<" from Magic Square that add up to 33 is "<< sum33(i)<<"\n";
+		}
+
+		for(int i=0;i<=132;i++){
+			cout<< "The combinations from Magic Square that add up to "<<i<<" is "<<comboSum(i)<<"\n";
+		}
+
+
+
+
+
+
 
 	}
 }
@@ -88,6 +101,47 @@ int Lucas(int n){
 		return (Lucas(n-1) + Lucas(n-2));
 	}
 }
+
+int sum33(int n){
+	int count=0;
+	int sum=0;
+	int subSize;
+	int size=powerSet.size();
+	for(int i=0;i<size;i++){
+		subSize=powerSet[i].size();
+		if(subSize==n){
+			sum=0;
+			for(int j=0; j<subSize;j++){
+				sum+=powerSet[i][j];
+			}
+			if(sum==33){
+				count++;
+			}
+		}
+	}
+
+	return count;
+}
+
+int comboSum(int maxSum){
+	int count=0;
+	int sum=0;
+	int subSize;
+	int size=powerSet.size();
+	for(int i=0;i<size;i++){
+		subSize=powerSet[i].size();
+		sum=0;
+		for(int j=0;j<subSize;j++){
+			sum+=powerSet[i][j];
+		}
+		if(sum==maxSum){
+			count++;
+		}
+	}
+
+	return count;
+}
+
 
 
 

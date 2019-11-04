@@ -26,3 +26,103 @@ Info: Internal Builder is used for build
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
 g++ -o HW2.exe "src\\HW2.o" 
 Info: Nothing to build for HW2
+17:45:16 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+18:46:20 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+18:47:33 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+18:52:46 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+18:54:12 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+c:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot open output file HW2.exe: Permission denied
+collect2.exe: error: ld returned 1 exit status
+18:54:19 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -o HW2.exe "src\\HW2.o" 
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+Info: Nothing to build for HW2
+18:59:50 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int main()':
+..\src\HW2.cpp:74:16: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<std::vector<int> >::size_type' {aka 'long long unsigned int'} [-Wsign-compare]
+   74 |   for(int i=0;i<powerSet.size();i++){
+      |               ~^~~~~~~~~~~~~~~~
+g++ -o HW2.exe "src\\HW2.o" 
+19:03:04 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+19:18:09 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int sum33(int)':
+..\src\HW2.cpp:101:24: warning: comparison of integer expressions of different signedness: 'std::vector<int>::size_type' {aka 'long long unsigned int'} and 'int' [-Wsign-compare]
+  101 |   if(powerSet[i].size()==n){
+      |      ~~~~~~~~~~~~~~~~~~^~~
+..\src\HW2.cpp:103:18: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<int>::size_type' {aka 'long long unsigned int'} [-Wsign-compare]
+  103 |    for(int j=0; j<powerSet[i].size();j++){
+      |                 ~^~~~~~~~~~~~~~~~~~~
+g++ -o HW2.exe "src\\HW2.o" 
+19:19:52 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int sum33(int)':
+..\src\HW2.cpp:105:24: warning: comparison of integer expressions of different signedness: 'std::vector<int>::size_type' {aka 'long long unsigned int'} and 'int' [-Wsign-compare]
+  105 |   if(powerSet[i].size()==n){
+      |      ~~~~~~~~~~~~~~~~~~^~~
+..\src\HW2.cpp:107:18: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<int>::size_type' {aka 'long long unsigned int'} [-Wsign-compare]
+  107 |    for(int j=0; j<powerSet[i].size();j++){
+      |                 ~^~~~~~~~~~~~~~~~~~~
+g++ -o HW2.exe "src\\HW2.o" 
+19:20:12 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int sum33(int)':
+..\src\HW2.cpp:105:24: warning: comparison of integer expressions of different signedness: 'std::vector<int>::size_type' {aka 'long long unsigned int'} and 'int' [-Wsign-compare]
+  105 |   if(powerSet[i].size()==n){
+      |      ~~~~~~~~~~~~~~~~~~^~~
+..\src\HW2.cpp:107:18: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<int>::size_type' {aka 'long long unsigned int'} [-Wsign-compare]
+  107 |    for(int j=0; j<powerSet[i].size();j++){
+      |                 ~^~~~~~~~~~~~~~~~~~~
+g++ -o HW2.exe "src\\HW2.o" 
+19:21:21 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+..\src\HW2.cpp: In function 'int sum33(int)':
+..\src\HW2.cpp:105:24: warning: comparison of integer expressions of different signedness: 'std::vector<int>::size_type' {aka 'long long unsigned int'} and 'int' [-Wsign-compare]
+  105 |   if(powerSet[i].size()==n){
+      |      ~~~~~~~~~~~~~~~~~~^~~
+..\src\HW2.cpp:107:18: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<int>::size_type' {aka 'long long unsigned int'} [-Wsign-compare]
+  107 |    for(int j=0; j<powerSet[i].size();j++){
+      |                 ~^~~~~~~~~~~~~~~~~~~
+g++ -o HW2.exe "src\\HW2.o" 
+19:25:43 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+19:32:29 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
