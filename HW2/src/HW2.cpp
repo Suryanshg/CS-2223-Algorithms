@@ -13,10 +13,11 @@
 
 using namespace std;
 
-int Lucas(int n);
+
 
 vector<vector<int>> powerSet; // vector of combinations
 
+unsigned int Lucas(int n);
 int sum33(int n);
 int comboSum(int maxSum);
 
@@ -120,11 +121,14 @@ int main() {
 /*
  * Generates the 'nth' Lucas Number through recursion
  */
-int Lucas(int n) {
+unsigned int Lucas(int n) {
+	unsigned int result=0;
 	if (n == 0) {
-		return 2;
+		result=2;
+		return result;
 	} else if (n == 1) {
-		return 1;
+		result=1;
+		return result;
 	} else {
 		return (Lucas(n - 1) + Lucas(n - 2));
 	}
