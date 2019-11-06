@@ -21,7 +21,7 @@ unsigned int Lucas(int n);
 int sum33(int n);
 int comboSum(int maxSum);
 
-/*1.
+/*Question 1.
  * Given: R(n) = 4R(n−1)−3R(n−2), R(0) = 2 and R(1) = 8
  * We obtain the following values:
  * R(0)=2
@@ -183,3 +183,40 @@ int comboSum(int maxSum) {
 
 //---------BONUS QUESTION-----------
 
+/*
+ * Magic squares have been recorded as far back as the third
+ * millennium BC in ancient China. According to legends, people
+ * created these 3x3 and 4x4 magic square in order to calm the
+ * angry gods. Many of these 3x3 and 4x4 magic squares can be
+ * found throughout Indian, Egyptian, Arabian and Greek culture.
+ * These magic squares would often be attributed to astrological
+ * and divine properties, similar to Subirachs’ square.
+ *
+ * This magic square can be found at the Temple known as the Temple
+ * Expiatori de la Sagrada Familia (“Expiatory Temple of the Holy
+ * Family”). This Roman Catholic church is currently under
+ * construction and is expected to have its construction completed
+ * by the year 2026, the 100th anniversary of Antoni Gaudi’s death.
+ * Antoni Gaudi proposed to erect this cathedral and spent 43 years
+ * building this church before being killed by a streetcar.
+ *
+ * In 1987, Catalan sculptor Josep Maria Subirachs worked on the
+ * cathedral by creating sculptures in the cathedral. Beside one of
+ * the sculptures has his Magic Number. It is said that Suribach took
+ * an existing magic square from German painter Durer and repeated
+ * the numbers 14 and 10 rather than 12 and 16 to make the magic sums
+ * add up to 33, the age that Jesus was executed. By dividing up the
+ * number 33 by 11, you get 3, which is believed to be a symbolic symbol
+ * in Christianity since the symbol of the trinity can be broken down
+ * into 3 parts: the Father, the Son, and the Holy Spirit.
+ *
+ * Inside Subirachs magic square is a hidden signature: when you add
+ * up all the numbers that repeat and look at their corresponding letter
+ * in the Roman alphabet, you get the intials, INRI. These initials means
+ * “Iesus Nazarenus Rex Iudaeorum” meaning “Jesus of Nazareth King of the
+ * Jews”. Before Jesus has died on the cross, Pontius Pilate added this
+ * message on top of his cross. Although the crowd complained that they
+ * did not see Jesus as a King, Pontius told them that since he put it
+ * up, it would stay.
+ *
+ */
