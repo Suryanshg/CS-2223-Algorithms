@@ -15,3 +15,11 @@ g++ -o HW2.exe "src\\HW2.o"
 Info: Internal Builder is used for build
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
 g++ -o HW2.exe "src\\HW2.o" 
+15:35:18 **** Rebuild of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+15:36:49 **** Incremental Build of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 

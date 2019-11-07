@@ -41,7 +41,7 @@ int comboSum(int maxSum);
 int main() {
 	string input;
 	cout
-			<< "Would you to do Lucas Number (LN) or Suribach's Magic Square (SMS)?:";
+			<< "Would you to do Lucas Number (LN) or Subirach's Magic Square (SMS)?:";
 	cin >> input;
 	if (input == "LN") {
 		double start, end;
