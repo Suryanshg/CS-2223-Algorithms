@@ -19,14 +19,13 @@ int main() {
 
 	string input;
 	cout<<"Input String:";
-	cin>>input;
+	getline(cin,input);
 	bool isPal=true;
-//	string processedInput=processString(input);
-//	cout<<processedInput<<endl;
-	int len=input.length();
+	string processedInput=processString(input);
+	int len=processedInput.length();
 	int mid=len/2;
 	for(int i=0;i<mid;i++){
-		if(input[i]!=input[len-1-i]){
+		if(processedInput[i]!=processedInput[len-1-i]){
 			isPal=false;
 			break;
 		}
@@ -48,13 +47,14 @@ int main() {
  */
 string processString(string input){
 	string result;
-	//input=lower(input);
 	int len=input.length();
 	for(int i=0;i<len;i++){
 		if(isalpha(input[i])!=0){
 			result.push_back(input[i]);
 		}
 	}
+
+	result=lower(result);
 	return result;
 }
 
@@ -66,7 +66,7 @@ string lower(string input){
 	int len=input.length();
 	for(int i=0;i<len;i++){
 		if(input[i]>='A' && input[i]<='Z'){
-			result.push_back(input[i]-32);
+			result.push_back(input[i]+32);
 		}
 		else{
 			result.push_back((input[i]));

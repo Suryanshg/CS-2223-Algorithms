@@ -45,3 +45,30 @@ g++ -o palindromecheck.exe "src\\palindromecheck.o"
 Info: Internal Builder is used for build
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
 g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:54:40 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:55:08 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:55:27 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:56:49 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for palindromecheck
+21:58:52 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:59:35 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for palindromecheck
