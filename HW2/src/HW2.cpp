@@ -74,7 +74,7 @@ int main() {
 	} else if (input == "SMS") {
 		int MagicSquare[16] = { 1, 14, 14, 4, 11, 7, 6, 9, 8, 10, 10, 5, 13, 2,
 				3, 15 };
-		cout << "The Suribach's magic square is: \n";
+		cout << "The Subirach's magic square is: \n";
 		for (int i = 0; i < 16; i++) { // prints the magic square
 			cout << MagicSquare[i] << " ";
 			if ((i + 1) % 4 == 0) {
