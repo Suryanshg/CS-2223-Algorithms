@@ -72,3 +72,291 @@ g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\pa
 g++ -o palindromecheck.exe "src\\palindromecheck.o" 
 Info: Nothing to build for palindromecheck
 Info: Nothing to build for palindromecheck
+23:04:47 **** Rebuild of configuration Debug for project HW1 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW1.o" "..\\src\\HW1.cpp" 
+g++ -o HW1.exe "src\\HW1.o" 
+23:04:52 **** Rebuild of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+23:04:56 **** Rebuild of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+23:11:11 **** Rebuild of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:11:15 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+23:14:35 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+..\src\easyinversioncount.cpp: In function 'int main()':
+..\src\easyinversioncount.cpp:14:16: error: request for member 'size' in 'foo', which is of non-class type 'int [3]'
+   14 |  int len = foo.size();
+      |                ^~~~
+..\src\easyinversioncount.cpp:15:21: error: expected primary-expression before ')' token
+   15 |  for(int i = 0; i < )
+      |                     ^
+..\src\easyinversioncount.cpp:15:20: error: expected ';' before ')' token
+   15 |  for(int i = 0; i < )
+      |                    ^~
+      |                    ;
+..\src\easyinversioncount.cpp:14:6: warning: unused variable 'len' [-Wunused-variable]
+   14 |  int len = foo.size();
+      |      ^~~
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+23:15:17 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+..\src\easyinversioncount.cpp: In function 'int main()':
+..\src\easyinversioncount.cpp:14:31: error: 'arr' was not declared in this scope
+   14 |  int len = sizeof(foo)/sizeof(arr[0]);
+      |                               ^~~
+..\src\easyinversioncount.cpp:15:21: error: expected primary-expression before ')' token
+   15 |  for(int i = 0; i < )
+      |                     ^
+..\src\easyinversioncount.cpp:15:20: error: expected ';' before ')' token
+   15 |  for(int i = 0; i < )
+      |                    ^~
+      |                    ;
+..\src\easyinversioncount.cpp:14:6: warning: unused variable 'len' [-Wunused-variable]
+   14 |  int len = sizeof(foo)/sizeof(arr[0]);
+      |      ^~~
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+23:16:54 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+..\src\easyinversioncount.cpp: In function 'int main()':
+..\src\easyinversioncount.cpp:14:23: error: invalid operands of types 'int' and 'int [3]' to binary 'operator-'
+   14 |  int len = *(foo + 1) - foo;
+      |            ~~~~~~~~~~ ^ ~~~
+      |            |            |
+      |            int          int [3]
+..\src\easyinversioncount.cpp:15:21: error: expected primary-expression before ')' token
+   15 |  for(int i = 0; i < )
+      |                     ^
+..\src\easyinversioncount.cpp:15:20: error: expected ';' before ')' token
+   15 |  for(int i = 0; i < )
+      |                    ^~
+      |                    ;
+..\src\easyinversioncount.cpp:14:6: warning: unused variable 'len' [-Wunused-variable]
+   14 |  int len = *(foo + 1) - foo;
+      |      ^~~
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+23:17:04 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+..\src\easyinversioncount.cpp: In function 'int main()':
+..\src\easyinversioncount.cpp:14:23: error: invalid operands of types 'int' and 'int [3]' to binary 'operator-'
+   14 |  int len = *(foo + 1) - foo;
+      |            ~~~~~~~~~~ ^ ~~~
+      |            |            |
+      |            int          int [3]
+..\src\easyinversioncount.cpp:15:21: error: expected primary-expression before ')' token
+   15 |  for(int i = 0; i < )
+      |                     ^
+..\src\easyinversioncount.cpp:15:20: error: expected ';' before ')' token
+   15 |  for(int i = 0; i < )
+      |                    ^~
+      |                    ;
+..\src\easyinversioncount.cpp:14:6: warning: unused variable 'len' [-Wunused-variable]
+   14 |  int len = *(foo + 1) - foo;
+      |      ^~~
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+23:17:38 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+..\src\easyinversioncount.cpp: In function 'int main()':
+..\src\easyinversioncount.cpp:17:21: error: expected primary-expression before ')' token
+   17 |  for(int i = 0; i < )
+      |                     ^
+..\src\easyinversioncount.cpp:17:20: error: expected ';' before ')' token
+   17 |  for(int i = 0; i < )
+      |                    ^~
+      |                    ;
+..\src\easyinversioncount.cpp:16:6: warning: unused variable 'len' [-Wunused-variable]
+   16 |  int len = *(&foo + 1) - foo;
+      |      ^~~
+Info: Nothing to build for palindromecheck
+23:19:43 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+Info: Nothing to build for easyinversioncount
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+Info: Nothing to build for easyinversioncount
+Info: Nothing to build for palindromecheck
+23:21:53 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:22:51 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:25:24 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:27:47 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:28:22 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:30:26 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:30:45 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:31:35 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:31:53 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:33:54 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:37:58 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:38:30 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+23:42:59 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+Info: Nothing to build for HW1
+Info: Nothing to build for HW2
+Info: Nothing to build for easyinversioncount
+Info: Nothing to build for palindromecheck
+16:19:44 **** Rebuild of configuration Debug for project HW1 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW1.o" "..\\src\\HW1.cpp" 
+g++ -o HW1.exe "src\\HW1.o" 
+16:19:52 **** Rebuild of configuration Debug for project HW2 ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
+g++ -o HW2.exe "src\\HW2.o" 
+16:19:56 **** Rebuild of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:20:01 **** Rebuild of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for easyinversioncount
+16:34:23 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:34:39 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:37:26 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+Info: Nothing to build for easyinversioncount
+16:39:02 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:40:12 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:40:28 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:40:40 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:40:54 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:41:04 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:42:24 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:43:02 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:43:24 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:45:58 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:46:23 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:47:30 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:49:11 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+16:49:41 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+Info: Nothing to build for easyinversioncount
+17:09:28 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
+17:09:53 **** Incremental Build of configuration Debug for project easyinversioncount ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\easyinversioncount.o" "..\\src\\easyinversioncount.cpp" 
+g++ -o easyinversioncount.exe "src\\easyinversioncount.o" 
