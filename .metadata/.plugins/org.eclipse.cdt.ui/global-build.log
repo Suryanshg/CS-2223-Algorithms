@@ -1,29 +1,47 @@
-00:47:28 **** Incremental Build of configuration Debug for project HW2 ****
+20:44:28 **** Rebuild of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
-Info: Nothing to build for HW2
-00:48:27 **** Incremental Build of configuration Debug for project HW2 ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for palindromecheck
+20:57:43 **** Incremental Build of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
-00:50:40 **** Incremental Build of configuration Debug for project HW2 ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for palindromecheck
+Info: Nothing to build for palindromecheck
+21:01:20 **** Incremental Build of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
-00:51:46 **** Incremental Build of configuration Debug for project HW2 ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+..\src\palindromecheck.cpp: In function 'std::string processString(std::string)':
+..\src\palindromecheck.cpp:50:15: error: request for member 'isalpha' in 'input.std::__cxx11::basic_string<char>::operator[](((std::__cxx11::basic_string<char>::size_type)i))', which is of non-class type '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type' {aka 'char'}
+   50 |   if(input[i].isalpha()){
+      |               ^~~~~~~
+21:01:51 **** Incremental Build of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
-15:35:18 **** Rebuild of configuration Debug for project HW2 ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:23:35 **** Incremental Build of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
-15:36:49 **** Incremental Build of configuration Debug for project HW2 ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:24:21 **** Incremental Build of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
-20:32:15 **** Incremental Build of configuration Debug for project HW2 ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:25:41 **** Incremental Build of configuration Debug for project palindromecheck ****
 Info: Internal Builder is used for build
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HW2.o" "..\\src\\HW2.cpp" 
-g++ -o HW2.exe "src\\HW2.o" 
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+Info: Nothing to build for palindromecheck
+21:27:30 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:29:03 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 
+21:30:23 **** Incremental Build of configuration Debug for project palindromecheck ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\palindromecheck.o" "..\\src\\palindromecheck.cpp" 
+g++ -o palindromecheck.exe "src\\palindromecheck.o" 

@@ -1837,3 +1837,6 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-07 20:44:21.984
+!MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 3.74 sec: 13,580 declarations; 21,351 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
