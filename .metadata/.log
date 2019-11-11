@@ -15,3 +15,15 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.cdt.core 1 0 2019-11-10 21:04:46.465
 !MESSAGE Indexed 'HW1' (1 sources, 133 headers) in 5.24 sec: 14,045 declarations; 22,188 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0055%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-10 21:04:49.920
+!MESSAGE Indexed 'HW2' (1 sources, 139 headers) in 3.45 sec: 17,002 declarations; 27,001 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0045%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-10 21:05:04.285
+!MESSAGE Indexed 'graycodesarefun' (1 sources, 306 headers) in 14.4 sec: 50,317 declarations; 89,471 references; 0 unresolved inclusions; 0 syntax errors; 23 unresolved names (0.016%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-10 21:05:06.794
+!MESSAGE Indexed 'easyinversioncount' (1 sources, 124 headers) in 2.5 sec: 13,585 declarations; 21,382 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-10 21:05:09.438
+!MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 2.64 sec: 13,593 declarations; 21,414 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
