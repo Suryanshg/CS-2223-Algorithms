@@ -20,7 +20,6 @@ int main() {
 	bool isPal = true;
 	string processedInput = processString(input);
 	int len = processedInput.length();
-	cout << processedInput << endl;
 	int mid = len / 2;
 	for (int i = 0; i < mid; i++) {
 		if (processedInput[i] != processedInput[len - 1 - i]) {
