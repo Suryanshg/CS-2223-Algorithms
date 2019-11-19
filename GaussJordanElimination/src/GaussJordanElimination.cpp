@@ -27,8 +27,21 @@ int main() {
 	};
 
 	double b[8]={0,0,0,0,20,34,-51,-6};
+	int n=sizeof(A)/sizeof(A[0]);
+	//cout<<n;
 
-	betterForwardElimination(A,b,8);
+	betterForwardElimination(A,b,n);
+
+
+	double pivotVal;
+	for(int i=0;i<n;i++){ //scaling the rows by pivot values
+		pivotVal=A[i][i];
+		for(int j=i;j<n+1;j++){
+			A[i][j]=A[i][j]/pivotVal;
+		}
+	}
+
+	printMatrix(A,n);
 }
 
 /*
@@ -59,8 +72,8 @@ void betterForwardElimination(double A[][9],double b[],int n){
 			}
 		}
 	}
+	//printMatrix(A,n);
 
-	printMatrix(A,n);
 
 }
 
