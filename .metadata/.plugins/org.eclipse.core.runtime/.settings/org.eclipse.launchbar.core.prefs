@@ -1,8 +1,11 @@
+LaunchTargetManager/configs/GaussJordanElimination.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/graycodesarefun.exe=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:easyinversioncount.exe,org.eclipse.launchbar.core.descriptorType.default\:fastinversioncount.exe,org.eclipse.launchbar.core.descriptorType.default\:graycodesarefun.exe,org.eclipse.launchbar.core.descriptorType.default\:palindromecheck.exe,org.eclipse.launchbar.core.descriptorType.default\:GaussJordanElimination.exe
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:GaussJordanElimination.exe
 eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:GaussJordanElimination.exe/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:GaussJordanElimination.exe/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:easyinversioncount.exe/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:easyinversioncount.exe/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
