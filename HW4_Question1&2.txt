@@ -1,0 +1,8 @@
+Q1.(a) Drawbacks of the ForwardElimination algorithm:
+	There can be zero division error in finding the scaling factor if the choices of pivots contains a zero. Also if the pivot values contain big real values
+	then there can be round-off error due to large scaling factors. There is no row swapping facility in the algorithm to select the best pivot row.
+   (b) The BetterForwardElimination algorithm remedy all the above drawbacks by incorporating the facility to select the best pivot row and with the smallest scaling factor value that
+	is greater than zero. This facility in implemented by implementing a row swapping feature.
+Q2. The BetterForwardElimination algorithm fails to provide the solution for the given equations as it only tries to solve for those system of equations which are linearly independent
+	and have a unique solution. The provided system of equations isn't linearly independent and contains infinitely many solutions. To remedy this shortcoming, we can incorporate
+	a facility in our routine to check whether a system is linearly independent or dependent and solve them accordingly. If the system has no solutions then it should print that.
