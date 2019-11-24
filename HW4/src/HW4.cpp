@@ -86,7 +86,7 @@ void determinePath(int A[][8], int n) {
 		cout << "Row " << n - i << ", Vault " << path[i] << endl;
 	}
 	cout << "The number of gems Bilbo collects is: " << maxVal << endl;
-	cout << "Current vault where king has secreted the Arkenstone is: " << maxValj << endl;
+	cout << "Current vault where king has secreted the Arkenstone is: " << maxValj+1 << endl;
 
 }
 

@@ -39,7 +39,8 @@ int main() {
 
 
 /*
- *
+ *Performs Gaussian Elimination on the provided matrix. Then performs Gauss-Jordan
+ *elimination
  */
 void gaussJordanElimination(double A[][9], double b[], int n) {
 	int pivotRow;
