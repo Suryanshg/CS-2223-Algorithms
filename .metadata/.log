@@ -8805,3 +8805,44 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-11-27 20:52:37.127 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=13.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-11-27 20:53:24.794
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex Galvan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:55:39.436
+!MESSAGE Indexed 'HW1' (2 sources, 133 headers) in 17.6 sec: 14,081 declarations; 22,454 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0055%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:55:44.642
+!MESSAGE Indexed 'HW2' (1 sources, 139 headers) in 5.16 sec: 17,002 declarations; 27,001 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0045%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:55:48.233
+!MESSAGE Indexed 'HW4' (1 sources, 124 headers) in 3.58 sec: 13,612 declarations; 21,539 references; 0 unresolved inclusions; 0 syntax errors; 35 unresolved names (0.099%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:55:51.641
+!MESSAGE Indexed 'HW5' (1 sources, 132 headers) in 3.4 sec: 14,652 declarations; 23,832 references; 0 unresolved inclusions; 0 syntax errors; 4 unresolved names (0.01%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:55:54.765
+!MESSAGE Indexed 'fastinversioncount' (1 sources, 126 headers) in 3.11 sec: 13,645 declarations; 21,550 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:56:09.915
+!MESSAGE Indexed 'graycodesarefun' (1 sources, 306 headers) in 15.1 sec: 50,317 declarations; 89,471 references; 0 unresolved inclusions; 0 syntax errors; 23 unresolved names (0.016%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:56:13.318
+!MESSAGE Indexed 'easyinversioncount' (1 sources, 124 headers) in 3.38 sec: 13,589 declarations; 21,402 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:56:33.357
+!MESSAGE Indexed 'GaussJordanElimination' (1 sources, 305 headers) in 19.7 sec: 50,252 declarations; 89,086 references; 0 unresolved inclusions; 0 syntax errors; 24 unresolved names (0.017%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-27 20:56:36.552
+!MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 3.17 sec: 13,593 declarations; 21,409 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
