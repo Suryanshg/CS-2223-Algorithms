@@ -30,10 +30,12 @@ int main() {
 void hashFile() {
 	ifstream file;
 	file.open("Raven.txt");
-	string ravenmap[1000][5];
+	string ravenmap[1000];
 	string word;
 	char x;
 	word.clear();
+	int h;
+	int s;
 
 	while (!file.eof()) {
 		x = file.get();
@@ -42,35 +44,41 @@ void hashFile() {
 			word = word + x;
 			x = file.get();
 		}
-
 		word = processString(word);
 		if (word != "") { //hash the words
 			//Levitin process
 
-			int h = 0;
-			int s = word.size();
+			h = 0;
+			s = word.size();
 			for (int i = 0; i < s; i++) {
 				h = (h * C + word[i]) % m;
 			}
 			cout << word << ":  h value = " << h<< " ";
-			for (int i = 0; i < 5; i++) {
-				if (ravenmap[h][i] != "") {	//word within hashmap space
-					if (ravenmap[h][i] == word) { //word is already within hashmap space
-						cout << word << " is already in the hashmap["<<i<<"]"
-								<< endl;
-						break;
+
+			if (ravenmap[h]=="") {	//word isn't in hashmap
+				ravenmap[h]=word;
+				cout << " " << word << " has been added to the hashmap" << endl;
+			}
+
+			else if(ravenmap[h]!=word){ // already occupied
+				while(ravenmap[h]!=""){
+					if(h==999){
+						h=0;
 					}
-				} else if (ravenmap[h][i] == "") {//space within hashmap is empty
-					ravenmap[h][i] = word;
-					cout << word << " has been added to the hashmap["<<i<<"]"
-							<< endl;
-					break;
-				} else { //???
-					cout << " SHOULD NOT READ THIS " << endl;
+					else{
+						h++;
+					}
 				}
+				ravenmap[h]=word;
+
+				cout << " " << word << " has been added but at a different hash address" <<endl;
+			}
+			else { //word is in map
+				cout << " " << word << " is already in the hashmap" << endl;
 			}
 			word.clear();
 		}
+
 	}
 }
 
