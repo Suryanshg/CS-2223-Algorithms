@@ -55,7 +55,11 @@ void hashFile() {
 			}
 			cout << word << ":  h value = " << h<< " ";
 
-			if (ravenmap[h]=="") {	//word isn't in hashmap
+			if(ravenmap[h]==word) { //word is in map
+				cout << " " << word << " is already in the hashmap" << endl;
+			}
+
+			else if (ravenmap[h]=="") {	//word isn't in hashmap
 				ravenmap[h]=word;
 				cout << " " << word << " has been added to the hashmap" << endl;
 			}
@@ -73,9 +77,7 @@ void hashFile() {
 
 				cout << " " << word << " has been added but at a different hash address" <<endl;
 			}
-			else { //word is in map
-				cout << " " << word << " is already in the hashmap" << endl;
-			}
+
 			word.clear();
 		}
 
