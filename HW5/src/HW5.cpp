@@ -10,7 +10,6 @@
 #include<iterator>
 #include<fstream>
 #include<string.h>
-#include<map>
 using namespace std;
 
 void hashFile();
@@ -20,8 +19,6 @@ int C = 123;
 int m = 1000;
 
 int main() {
-//	HashMap<int, int> *h = new HashMap<int, int>;
-
 	hashFile();
 	return 0;
 }
@@ -32,8 +29,8 @@ int main() {
  */
 void hashFile() {
 	ifstream file;
-	file.open("C:\\Users\\Alex Galvan\\Desktop\\CS-2223-Algorithms\\Raven.txt");
-	map<int, string> ravenmap;
+	file.open("Raven.txt");
+	string ravenmap[1000];
 	string word;
 	char x;
 	word.clear();
@@ -56,8 +53,8 @@ void hashFile() {
 				h = (h * C + word[i]) % m;
 			}
 			cout << word << ":  h value = " << h;
-			if (ravenmap.find(h) == ravenmap.end()) {	//word isn't in hashmap
-				ravenmap.insert(pair<int, string>(h, word));
+			if (ravenmap[h]!= word) {	//word isn't in hashmap
+				ravenmap[h]=word;
 				cout << " " << word << " has been added to the hashmap" << endl;
 			} else { //word is in map
 
