@@ -30,7 +30,7 @@ int main() {
 void hashFile() {
 	ifstream file;
 	file.open("Raven.txt");
-	string ravenmap[1000];
+	string ravenmap[1000][5];
 	string word;
 	char x;
 	word.clear();
@@ -52,13 +52,22 @@ void hashFile() {
 			for (int i = 0; i < s; i++) {
 				h = (h * C + word[i]) % m;
 			}
-			cout << word << ":  h value = " << h;
-			if (ravenmap[h]!= word) {	//word isn't in hashmap
-				ravenmap[h]=word;
-				cout << " " << word << " has been added to the hashmap" << endl;
-			} else { //word is in map
-
-				cout << " " << word << " is already in the hashmap" << endl;
+			cout << word << ":  h value = " << h<< " ";
+			for (int i = 0; i < 5; i++) {
+				if (ravenmap[h][i] != "") {	//word within hashmap space
+					if (ravenmap[h][i] == word) { //word is already within hashmap space
+						cout << word << " is already in the hashmap["<<i<<"]"
+								<< endl;
+						break;
+					}
+				} else if (ravenmap[h][i] == "") {//space within hashmap is empty
+					ravenmap[h][i] = word;
+					cout << word << " has been added to the hashmap["<<i<<"]"
+							<< endl;
+					break;
+				} else { //???
+					cout << " SHOULD NOT READ THIS " << endl;
+				}
 			}
 			word.clear();
 		}
