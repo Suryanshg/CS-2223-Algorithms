@@ -14,6 +14,7 @@ using namespace std;
 
 void hashFile();
 string processString(string input);
+void func();
 
 int C = 123;
 int m = 1000;
@@ -22,6 +23,8 @@ int main() {
 	hashFile();
 	return 0;
 }
+
+
 
 /*
  * Takes a word within file and determines
@@ -32,55 +35,56 @@ void hashFile() {
 	file.open("Raven.txt");
 	string ravenmap[1000];
 	string word;
-	char x;
 	word.clear();
 	int h;
 	int s;
 
-	while (!file.eof()) {
-		x = file.get();
+	if (file.is_open()) {
+		while (!file.eof()) {
 
-		while (x != ' ') {
-			word = word + x;
-			x = file.get();
-		}
-		word = processString(word);
-		if (word != "") { //hash the words
-			//Levitin process
 
-			h = 0;
-			s = word.size();
-			for (int i = 0; i < s; i++) {
-				h = (h * C + word[i]) % m;
-			}
-			cout << word << ":  h value = " << h<< " ";
+			file >> word;
+			word=processString(word);
+			if (word != "") { //hash the words
+				//Levitin process
 
-			if(ravenmap[h]==word) { //word is in map
-				cout << " " << word << " is already in the hashmap" << endl;
-			}
+				h = 0;
+				s = word.size();
+				for (int i = 0; i < s; i++) {
+					h = (h * C + word[i]) % m;
+				}
+				cout << word << ":  h value = " << h<< " ";
 
-			else if (ravenmap[h]=="") {	//word isn't in hashmap
-				ravenmap[h]=word;
-				cout << " " << word << " has been added to the hashmap" << endl;
-			}
+				if(ravenmap[h]==word) { //word is in map
+					cout << " " << word << " is already in the hashmap" << endl;
+				}
 
-			else if(ravenmap[h]!=word){ // already occupied
-				while(ravenmap[h]!=""){
-					if(h==999){
-						h=0;
+				else if (ravenmap[h]=="") {	//word isn't in hashmap
+					ravenmap[h]=word;
+					cout << " " << word << " has been added to the hashmap" << endl;
+				}
+
+				else if(ravenmap[h]!=word){ // already occupied
+					while(ravenmap[h]!=""){
+						if(ravenmap[h]==word){
+							cout << " " << word << " is already in the hashmap1" << endl;
+							break;
+						}
+					    else if(h==999){
+							h=0;
+						}
+						else{
+							h++;
+						}
 					}
-					else{
-						h++;
+					if(ravenmap[h]==""){
+						ravenmap[h]=word;
+						cout << " " << word << " has been added but at a different hash address" <<endl;
 					}
 				}
-				ravenmap[h]=word;
-
-				cout << " " << word << " has been added but at a different hash address" <<endl;
+				word.clear();
 			}
-
-			word.clear();
 		}
-
 	}
 }
 
