@@ -198,14 +198,15 @@ void hashFile() {
 
 	// Question 3
 	// part a /////////////////////////////////////////////////
-	int nonEmptyAddress = 0;
+	double nonEmptyAddress = 0;
 	for (int i = 0; i < 1000; i++) {
 		if (ravenMap[i] != "") {
 			nonEmptyAddress++;
 		}
 	}
 	cout << "part a" << endl;
-	cout << "non-empty addresses in table is " << nonEmptyAddress << endl;
+	cout << "Number of non-empty addresses in table is " << nonEmptyAddress << endl;
+	cout << "Load Factor is "<< nonEmptyAddress/1000<<endl;
 
 	// part b /////////////////////////////////////////////////
 	int stringSize = 1000;
@@ -252,6 +253,37 @@ void hashFile() {
 			<< endl;
 	cout << "The starting index is " << longestEmptyStartingIndex
 			<< " and the ending index is " << longestEmptyEndingIndex << endl;
+
+
+
+
+	//part b // revised
+	cout<<"Part b revised"<<endl;
+	int cStart=0,cEnd=0, maxStart=0, maxEnd=0;
+	int clen=0,maxlen=0;
+	int size=sizeof(ravenMap)/sizeof(ravenMap[0]);
+	for(int i=0;i<size;i++){
+		if(ravenMap[i]==""){
+			cStart=i;
+			i++;
+			while(ravenMap[i]==""){
+				i++;
+			}
+			cEnd=i-1;
+			clen=cEnd-cStart+1;
+
+			if(clen>maxlen){
+				maxEnd=cEnd;
+				maxStart=cStart;
+				maxlen=clen;
+			}
+		}
+	}
+
+	cout<<" Longest Empty area starts at: "<<maxStart<<endl;
+	cout<<" Longest Empty area ends at: "<<maxEnd<<endl;
+	cout<<" Length of Longest Empty area is:"<< maxlen<<endl;
+
 
 	//part c   /////////////////////////////////////////////////
 	stringSize = 1000;
@@ -300,6 +332,37 @@ void hashFile() {
 	cout << "The starting index is " << longestNonEmptyStartingIndex
 			<< " and the ending index is " << longestNonEmptyEndingIndex
 			<< endl;
+
+	//part c // revised
+	cout<<"Part c revised"<<endl;
+	cStart=0;
+	cEnd=0;
+	maxStart=0;
+	maxEnd=0;
+	clen=0;
+	maxlen=0;
+
+	for(int i=0;i<size;i++){
+		if(ravenMap[i]!=""){
+			cStart=i;
+			i++;
+			while(ravenMap[i]!=""){
+				i++;
+			}
+			cEnd=i-1;
+			clen=cEnd-cStart+1;
+
+			if(clen>maxlen){
+				maxEnd=cEnd;
+				maxStart=cStart;
+				maxlen=clen;
+			}
+		}
+	}
+
+	cout<<" Largest cluster starts at: "<<maxStart<<endl;
+	cout<<" Largest cluster ends at: "<<maxEnd<<endl;
+	cout<<" Length of Largest cluster is:"<< maxlen<<endl;
 
 //	//part d   /////////////////////////////////////////////////
 //	int maxNum = 0;
