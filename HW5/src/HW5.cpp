@@ -7,7 +7,6 @@
 //============================================================================
 
 #include<iostream>
-#include<iterator>
 #include<fstream>
 #include<string.h>
 using namespace std;
@@ -169,7 +168,6 @@ void hashFile() {
 	for(int i=0;i<size;i++){
 		if(ravenMap[i]==""){
 			cStart=i;
-			i++;
 			while(ravenMap[i]==""){
 				i++;
 			}
@@ -249,7 +247,7 @@ void hashFile() {
 	for(int i=0;i<size;i++){
 		if(ravenMap[i]!=""){
 			cStart=i;
-			i++;
+
 			while(ravenMap[i]!=""){
 				i++;
 			}
@@ -268,22 +266,55 @@ void hashFile() {
 	cout<<" Largest cluster ends at: "<<maxEnd<<endl;
 	cout<<" Length of Largest cluster is:"<< maxlen<<endl;
 
-	//part e revised //
+	//part d //
+	cout<<"Part d"<<endl;
+	int maxNum=0;
+	int maxHash=0, hash;
+	for(int i=0;i<size;i++){
+		hash=myHash(ravenMap[i]);
+		int curNum=0;
+		for(int j=0;j<size;j++){
+			if(myHash(ravenMap[j])==hash){
+				curNum++;
+			}
+		}
+		if(curNum>maxNum){
+			maxNum=curNum;
+			maxHash=hash;
+		}
+	}
+
+	cout<< "Hash Address: "<<maxHash<<" results in greatest number of distinct "<<maxNum<<" words"<<endl;
+
+	//test case
+	int count0=0;
+	for(int i=0;i<size;i++){
+		if(myHash(ravenMap[i])==0){
+			count0++;
+		}
+	}
+
+	cout<< "count0:"<<count0<<endl;
+
+	//part e //
 	cout<<"Part e"<<endl;
 	int maxdiff=0,  curdiff=0;
-	int maxHash=0, hash;
+	maxHash=0;
 	for(int i=0;i<size;i++){
 		if(myHash(ravenMap[i])!=i){
 			hash=i;
-			curdiff=abs(myHash(ravenMap[i])-i);
+			if(i<myHash(ravenMap[i])){
+				curdiff=i+1000-myHash(ravenMap[i]);
+			}
+			else{
+				curdiff=myHash(ravenMap[i])-i;
+			}
 		}
-
 		if(curdiff>maxdiff){
 			maxdiff=curdiff;
 			maxHash=hash;
 		}
 	}
-
 	cout<<ravenMap[maxHash]<<" is stored the farthest that is "<<maxdiff<<" units from its actual hash: "<<myHash(ravenMap[maxHash])<<endl;
 }
 
