@@ -157,8 +157,6 @@ void hashFile() {
 			maxStart = cStart;
 			maxlen = clen;
 		}
-	} else {
-		//cout << "Good" << endl;
 	}
 
 
@@ -216,8 +214,6 @@ void hashFile() {
 			maxStart = cStart;
 			maxlen = clen;
 		}
-	} else {
-		//cout << "Not good..." << endl;
 	}
 
 	cout<<" Largest cluster starts at: "<<maxStart<<endl;
