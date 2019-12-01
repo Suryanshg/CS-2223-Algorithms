@@ -111,57 +111,8 @@ void hashFile() {
 	cout << "Number of non-empty addresses in table is " << nonEmptyAddress << endl;
 	cout << "Load Factor is "<< nonEmptyAddress/1000<<endl;
 
-	// part b /////////////////////////////////////////////////
-	int stringSize = 1000;
-	int firstIndex = 0;
-	if (ravenMap[1000] != "") {
-		int i = 1000;
-		while (ravenMap[i] != "") {
-			i--;
-		}
-		firstIndex = i;
-	}
-	string ravenMapDuplicate[stringSize * 2];
-	for (int i = 0; i < stringSize; i++) {
-		ravenMapDuplicate[i] = ravenMapDuplicate[stringSize + i] = ravenMap[i];
-	}
-	int longestEmptyCount = 0;
-	int longestEmptyEndingIndex = 0;
-	int longestEmptyStartingIndex = 0;
-	int previousCount = 0;
-
-	for (int i = firstIndex; i < stringSize + firstIndex; i++) {
-		if (ravenMapDuplicate[i] == "") {
-			if (previousCount > longestEmptyCount) {
-				previousCount++;
-				longestEmptyCount = previousCount;
-				longestEmptyEndingIndex = i - firstIndex;
-			} else {
-				previousCount++;
-			}
-		} else {
-			previousCount = 0;
-		}
-	}
-
-	if ((longestEmptyEndingIndex - longestEmptyCount) < 0) { //count is bigger than longestEmptyCount
-		int temp = abs(longestEmptyEndingIndex - longestEmptyCount);
-		longestEmptyStartingIndex = 1000 - temp;
-	} else {
-		longestEmptyStartingIndex = longestEmptyEndingIndex - longestEmptyCount
-				+ 1;
-	}
-	cout << "part b" << endl;
-	cout << "The longest empty area in the table is " << longestEmptyCount
-			<< endl;
-	cout << "The starting index is " << longestEmptyStartingIndex
-			<< " and the ending index is " << longestEmptyEndingIndex << endl;
-
-
-
-
-	//part b // revised
-	cout<<"Part b revised"<<endl;
+	//part b /////////////////////////////////////////////////
+	cout<<"Part b "<<endl;
 	int cStart=0,cEnd=0, maxStart=0, maxEnd=0;
 	int clen=0,maxlen=0;
 	int size=sizeof(ravenMap)/sizeof(ravenMap[0]);
@@ -181,6 +132,35 @@ void hashFile() {
 			}
 		}
 	}
+	clen = 0;
+	cStart = 0;
+
+	//checking the circular index position
+	if (ravenMap[size - 1] == "") {
+		int i = size -1;
+		while (ravenMap[i] == "") {
+			i--;
+		}
+		cEnd = i + 1;
+		//cout << "cEnd is " << cEnd << endl;
+
+		i = 0;
+		while (ravenMap[i] == "") {
+			i++;
+		}
+		cStart = i -1;
+		clen = cStart + cEnd - size + 2;
+		//cout << "cStart is " << cStart << endl;
+		//cout << "clen is " << clen << endl;
+		if (clen > maxlen) {
+			maxEnd = cEnd;
+			maxStart = cStart;
+			maxlen = clen;
+		}
+	} else {
+		//cout << "Good" << endl;
+	}
+
 
 	cout<<" Longest Empty area starts at: "<<maxStart<<endl;
 	cout<<" Longest Empty area ends at: "<<maxEnd<<endl;
@@ -188,55 +168,7 @@ void hashFile() {
 
 
 	//part c   /////////////////////////////////////////////////
-	stringSize = 1000;
-	firstIndex = 0;
-	if (ravenMap[1000] == "") { //find what the first
-		int i = 1000;
-		while (ravenMap[i] == "") {
-			i--;
-		}
-		firstIndex = i;
-	}
-	string ravenMap2ndDuplicate[stringSize * 2];
-	for (int i = 0; i < stringSize; i++) {
-		ravenMap2ndDuplicate[i] = ravenMap2ndDuplicate[stringSize + i] =
-				ravenMap[i];
-	}
-
-	int longestNonEmptyCount = 0;
-	int longestNonEmptyEndingIndex = 0;
-	int longestNonEmptyStartingIndex = 0;
-	previousCount = 0;
-
-	for (int i = firstIndex; i < stringSize + firstIndex; i++) {
-		if (ravenMap2ndDuplicate[i] != "") {
-			if (previousCount > longestNonEmptyCount) {
-				previousCount++;
-				longestNonEmptyCount = previousCount + 1;
-				longestNonEmptyEndingIndex = i - firstIndex;
-			} else {
-				previousCount++;
-			}
-		} else {
-			previousCount = 0;
-		}
-	}
-	if ((longestNonEmptyEndingIndex - longestNonEmptyCount) < 0) { //count is bigger than longestEmptyCount
-		int temp = abs(longestNonEmptyEndingIndex - longestNonEmptyCount);
-		longestNonEmptyStartingIndex = 1000 - temp;
-	} else {
-		longestNonEmptyStartingIndex = longestNonEmptyEndingIndex
-				- longestNonEmptyCount + 1;
-	}
-	cout << "part c" << endl;
-	cout << "The longest non-empty area in the table is "
-			<< longestNonEmptyCount << endl;
-	cout << "The starting index is " << longestNonEmptyStartingIndex
-			<< " and the ending index is " << longestNonEmptyEndingIndex
-			<< endl;
-
-	//part c // revised
-	cout<<"Part c revised"<<endl;
+	cout<<"Part c "<<endl;
 	cStart=0;
 	cEnd=0;
 	maxStart=0;
@@ -260,6 +192,32 @@ void hashFile() {
 				maxlen=clen;
 			}
 		}
+	}
+
+	//checking the circular index position
+	if (ravenMap[size - 1] != "") {
+		int i = size -1;
+		while (ravenMap[i] != "") {
+			i--;
+		}
+		cEnd = i + 1;
+		//cout << "cEnd is (should be 999)" << cEnd << endl;
+
+		i = 0;
+		while (ravenMap[i] != "") {
+			i++;
+		}
+		cStart = i -1;
+		clen = cStart + cEnd - size + 2;
+		//cout << "cStart is (should be 0)" << cStart << endl;
+		//cout << "clen is (should be 1)" << clen << endl;
+		if (clen > maxlen) {
+			maxEnd = cEnd;
+			maxStart = cStart;
+			maxlen = clen;
+		}
+	} else {
+		//cout << "Not good..." << endl;
 	}
 
 	cout<<" Largest cluster starts at: "<<maxStart<<endl;
