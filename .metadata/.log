@@ -9083,3 +9083,58 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:18:10.544
 !MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 1.27 sec: 13,593 declarations; 21,409 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+!SESSION 2019-11-30 23:54:22.859 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=13.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-11-30 23:54:59.533
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex Galvan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:56:17.106
+!MESSAGE Indexed 'HW1' (1 sources, 133 headers) in 21.1 sec: 14,045 declarations; 22,188 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0055%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:56:28.972
+!MESSAGE Indexed 'HW2' (1 sources, 139 headers) in 10.6 sec: 17,002 declarations; 27,001 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0045%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:56:34.404
+!MESSAGE Indexed 'HW4' (1 sources, 124 headers) in 5.41 sec: 13,620 declarations; 21,570 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:56:40.263
+!MESSAGE Indexed 'HW5' (1 sources, 132 headers) in 5.79 sec: 14,683 declarations; 24,191 references; 0 unresolved inclusions; 0 syntax errors; 4 unresolved names (0.01%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:56:59.039
+!MESSAGE Indexed 'graycodesarefun' (1 sources, 306 headers) in 18.7 sec: 50,317 declarations; 89,471 references; 0 unresolved inclusions; 0 syntax errors; 23 unresolved names (0.016%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:57:02.320
+!MESSAGE Indexed 'fastinversioncount' (1 sources, 126 headers) in 3.26 sec: 13,645 declarations; 21,550 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:57:05.928
+!MESSAGE Indexed 'easyinversioncount' (1 sources, 124 headers) in 3.6 sec: 13,589 declarations; 21,401 references; 0 unresolved inclusions; 0 syntax errors; 3 unresolved names (0.0086%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:57:09.256
+!MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 3.32 sec: 13,593 declarations; 21,409 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-11-30 23:57:29.022
+!MESSAGE Indexed 'GaussJordanElimination' (1 sources, 305 headers) in 19.8 sec: 50,252 declarations; 89,086 references; 0 unresolved inclusions; 0 syntax errors; 24 unresolved names (0.017%)
+!SESSION 2019-12-01 00:53:57.165 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=13.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-12-01 00:54:58.465
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex Galvan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

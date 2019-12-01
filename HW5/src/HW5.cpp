@@ -26,7 +26,7 @@ int main() {
 /*
  * computes the hash for a given word
  */
-int myHash(string word){
+int myHash(string word) {
 	int h = 0;
 	int s = word.size();
 	for (int i = 0; i < s; i++) {
@@ -95,8 +95,8 @@ void hashFile() {
 	}
 	cout << endl;
 	for (int i = 0; i < 1000; i++) {
-		cout << "index :" << i
-				<< " ravenMap[" << i << "]: " << ravenMap[i] <<endl;
+		cout << "index :" << i << " ravenMap[" << i << "]: " << ravenMap[i]
+				<< endl;
 	}
 
 	// Question 3
@@ -108,27 +108,28 @@ void hashFile() {
 		}
 	}
 	cout << "part a" << endl;
-	cout << "Number of non-empty addresses in table is " << nonEmptyAddress << endl;
-	cout << "Load Factor is "<< nonEmptyAddress/1000<<endl;
+	cout << "Number of non-empty addresses in table is " << nonEmptyAddress
+			<< endl;
+	cout << "Load Factor is " << nonEmptyAddress / 1000 << endl;
 
 	//part b /////////////////////////////////////////////////
-	cout<<"Part b "<<endl;
-	int cStart=0,cEnd=0, maxStart=0, maxEnd=0;
-	int clen=0,maxlen=0;
-	int size=sizeof(ravenMap)/sizeof(ravenMap[0]);
-	for(int i=0;i<size;i++){
-		if(ravenMap[i]==""){
-			cStart=i;
-			while(ravenMap[i]==""){
+	cout << "Part b " << endl;
+	int cStart = 0, cEnd = 0, maxStart = 0, maxEnd = 0;
+	int clen = 0, maxlen = 0;
+	int size = sizeof(ravenMap) / sizeof(ravenMap[0]);
+	for (int i = 0; i < size; i++) {
+		if (ravenMap[i] == "") {
+			cStart = i;
+			while (ravenMap[i] == "") {
 				i++;
 			}
-			cEnd=i-1;
-			clen=cEnd-cStart+1;
+			cEnd = i - 1;
+			clen = cEnd - cStart + 1;
 
-			if(clen>maxlen){
-				maxEnd=cEnd;
-				maxStart=cStart;
-				maxlen=clen;
+			if (clen > maxlen) {
+				maxEnd = cEnd;
+				maxStart = cStart;
+				maxlen = clen;
 			}
 		}
 	}
@@ -137,7 +138,7 @@ void hashFile() {
 
 	//checking the circular index position
 	if (ravenMap[size - 1] == "") {
-		int i = size -1;
+		int i = size - 1;
 		while (ravenMap[i] == "") {
 			i--;
 		}
@@ -148,7 +149,7 @@ void hashFile() {
 		while (ravenMap[i] == "") {
 			i++;
 		}
-		cStart = i -1;
+		cStart = i - 1;
 		clen = cStart + cEnd - size + 2;
 		//cout << "cStart is " << cStart << endl;
 		//cout << "clen is " << clen << endl;
@@ -159,42 +160,40 @@ void hashFile() {
 		}
 	}
 
-
-	cout<<" Longest Empty area starts at: "<<maxStart<<endl;
-	cout<<" Longest Empty area ends at: "<<maxEnd<<endl;
-	cout<<" Length of Longest Empty area is:"<< maxlen<<endl;
-
+	cout << " Longest Empty area starts at: " << maxStart << endl;
+	cout << " Longest Empty area ends at: " << maxEnd << endl;
+	cout << " Length of Longest Empty area is:" << maxlen << endl;
 
 	//part c   /////////////////////////////////////////////////
-	cout<<"Part c "<<endl;
-	cStart=0;
-	cEnd=0;
-	maxStart=0;
-	maxEnd=0;
-	clen=0;
-	maxlen=0;
+	cout << "Part c " << endl;
+	cStart = 0;
+	cEnd = 0;
+	maxStart = 0;
+	maxEnd = 0;
+	clen = 0;
+	maxlen = 0;
 
-	for(int i=0;i<size;i++){
-		if(ravenMap[i]!=""){
-			cStart=i;
+	for (int i = 0; i < size; i++) {
+		if (ravenMap[i] != "") {
+			cStart = i;
 
-			while(ravenMap[i]!=""){
+			while (ravenMap[i] != "") {
 				i++;
 			}
-			cEnd=i-1;
-			clen=cEnd-cStart+1;
+			cEnd = i - 1;
+			clen = cEnd - cStart + 1;
 
-			if(clen>maxlen){
-				maxEnd=cEnd;
-				maxStart=cStart;
-				maxlen=clen;
+			if (clen > maxlen) {
+				maxEnd = cEnd;
+				maxStart = cStart;
+				maxlen = clen;
 			}
 		}
 	}
 
 	//checking the circular index position
 	if (ravenMap[size - 1] != "") {
-		int i = size -1;
+		int i = size - 1;
 		while (ravenMap[i] != "") {
 			i--;
 		}
@@ -205,7 +204,7 @@ void hashFile() {
 		while (ravenMap[i] != "") {
 			i++;
 		}
-		cStart = i -1;
+		cStart = i - 1;
 		clen = cStart + cEnd - size + 2;
 		//cout << "cStart is (should be 0)" << cStart << endl;
 		//cout << "clen is (should be 1)" << clen << endl;
@@ -216,60 +215,89 @@ void hashFile() {
 		}
 	}
 
-	cout<<" Largest cluster starts at: "<<maxStart<<endl;
-	cout<<" Largest cluster ends at: "<<maxEnd<<endl;
-	cout<<" Length of Largest cluster is:"<< maxlen<<endl;
+	cout << " Largest cluster starts at: " << maxStart << endl;
+	cout << " Largest cluster ends at: " << maxEnd << endl;
+	cout << " Length of Largest cluster is:" << maxlen << endl;
 
 	//part d //
-	cout<<"Part d"<<endl;
-	int maxNum=0;
-	int maxHash=0, hash;
-	for(int i=0;i<size;i++){
-		hash=myHash(ravenMap[i]);
-		int curNum=0;
-		for(int j=0;j<size;j++){
-			if(myHash(ravenMap[j])==hash){
-				curNum++;
+	cout << "Part d" << endl;
+	int maxNum = 0;
+	int maxHash = 0, hash;
+	for (int i = 0; i < size; i++) {
+		if (ravenMap[i] != "") {
+			hash = myHash(ravenMap[i]);
+			int curNum = 0;
+			for (int j = 0; j < size; j++) {
+				if (myHash(ravenMap[j]) == hash) {
+					curNum++;
+				}
 			}
-		}
-		if(curNum>maxNum){
-			maxNum=curNum;
-			maxHash=hash;
+			if (curNum > maxNum) {
+				maxNum = curNum;
+				maxHash = hash;
+			}
 		}
 	}
 
-	cout<< "Hash Address: "<<maxHash<<" results in greatest number of distinct "<<maxNum<<" words"<<endl;
+	cout << "Hash Address: " << maxHash
+			<< " results in greatest number of distinct " << maxNum << " words"
+			<< endl;
 
 	//test case
-	int count0=0;
-	for(int i=0;i<size;i++){
-		if(myHash(ravenMap[i])==0){
-			count0++;
-		}
-	}
-
-	cout<< "count0:"<<count0<<endl;
+//	int count0 = 0;
+//	for (int i = 0; i < size; i++) {
+//		if (myHash(ravenMap[i]) == 0) {
+//			count0++;
+//		}
+//	}
+//
+//	cout << "count0:" << count0 << endl;
 
 	//part e //
-	cout<<"Part e"<<endl;
-	int maxdiff=0,  curdiff=0;
-	maxHash=0;
-	for(int i=0;i<size;i++){
-		if(myHash(ravenMap[i])!=i){
-			hash=i;
-			if(i<myHash(ravenMap[i])){
-				curdiff=i+1000-myHash(ravenMap[i]);
-			}
-			else{
-				curdiff=myHash(ravenMap[i])-i;
+	//cout << "Part e" << endl;
+	int maxdiff = 0, curdiff = 0;
+	maxHash = 0;
+	for (int i = 0; i < size; i++) {
+		if (myHash(ravenMap[i]) != i) {
+			hash = i;
+			if (i < myHash(ravenMap[i])) {
+				curdiff = i + 1000 - myHash(ravenMap[i]);
+			} else {
+				curdiff = myHash(ravenMap[i]) - i;
 			}
 		}
-		if(curdiff>maxdiff){
-			maxdiff=curdiff;
-			maxHash=hash;
+		if (curdiff > maxdiff) {
+			maxdiff = curdiff;
+			maxHash = hash;
 		}
 	}
-	cout<<ravenMap[maxHash]<<" is stored the farthest that is "<<maxdiff<<" units from its actual hash: "<<myHash(ravenMap[maxHash])<<endl;
+//	cout << ravenMap[maxHash] << " is stored the farthest that is " << maxdiff
+//			<< " units from its actual hash: " << myHash(ravenMap[maxHash])
+//			<< endl;
+
+	//part e
+	cout << "Part e" << endl;
+	int maxDist = 0;
+	maxHash = 0;
+	for (int i = 0; i < size; i++) {
+		int curDist = 0;
+		if (ravenMap[i] != "") {
+			hash = myHash(ravenMap[i]);
+			if (hash <= i) {
+				curDist = i - hash;
+			} else {// overlooped 999
+				curDist = i - hash + size;
+				//cout << "curDist (overlooped) is " << curDist << endl;
+			}
+			if (curDist > maxDist) {
+				maxHash = i;
+				maxDist = curDist;
+			}
+		}
+	}
+	cout << ravenMap[maxHash] << " is stored the farthest that is " << maxDist
+			<< " units from its actual hash: " << myHash(ravenMap[maxHash])
+			<< endl;
 }
 
 /*
