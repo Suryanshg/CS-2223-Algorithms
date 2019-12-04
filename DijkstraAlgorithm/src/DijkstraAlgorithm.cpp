@@ -14,63 +14,58 @@ using namespace std;
 
 string nodes[10] = { "A", "J", "M", "R", "K", "S", "I", "N", "T", "D" };
 
+int** determineMatrix(int size);
+int determineMatrixSize();
+void determineInfo(string *startNode, string *endNode, int size);
+int** performDijkstra(string startNode, string endNode, int **fileMatrix,
+		int size);
 bool contains(vector<int> vector, int node);
 int getIndex(string node);
-
-bool contains(vector<int> vector, int node) {
-	bool found = false;
-	int size=vector.size();
-	for (int i = 0; i < size; i++) {
-		if (vector[i] == node) {
-			found = true;
-			break;
-		}
-	}
-	return found;
-}
+void printMatrix(int **matrix, int size);
+void produceResults(int **dijkstraGraph, string startNode, string endNode,
+		int size);
 
 int main() {
+	int size = determineMatrixSize();
+	int **fileMatrix = determineMatrix(size);
+	string startNode, endNode;
+	determineInfo(&startNode, &endNode, size);
+	int **dijkstraGraph = performDijkstra(startNode, endNode, fileMatrix, size);
+	produceResults(dijkstraGraph, startNode, endNode, size);
+}
 
-	ifstream file;
-	file.open("DijkstraExample.txt");
-	int intMatrixSize;
-	file >> intMatrixSize;
-	cout << "Matrix size is " << intMatrixSize << endl;
-	int x;
-	int fileMatrix[intMatrixSize][intMatrixSize];
-	for (int i = 0; i < intMatrixSize; i++) {
-		for (int j = 0; j < intMatrixSize; j++) {
-			file >> x;
-			fileMatrix[i][j] = x;
-		}
-	}
-	file.close();
-
-	int size = sizeof(fileMatrix) / sizeof(fileMatrix[0]);
-	string startNode;
-	string endNode;
-	cout << "Enter start node: " << endl;
-	cin >> startNode;
-	cout << "Enter end node: " << endl;
-	cin >> endNode;
-
-	int start = getIndex(startNode);
+void produceResults(int **dijkstraGraph, string startNode, string endNode,
+		int size) {
+	//Length of desired path
+	//Quickest route to endNode
 	int end = getIndex(endNode);
+	cout << "The shortest distance between " << startNode << " to " << endNode
+			<< " is " << dijkstraGraph[end][1] << endl;
+	cout << "Shortest Path from " << startNode << " to " << endNode << " is:"
+			<< endl;
+	vector<int> path;
+	path.push_back(end);
+	while (endNode != startNode) {
+		int index = getIndex(endNode);
+		path.push_back(dijkstraGraph[index][0]);
+		endNode = nodes[dijkstraGraph[index][0]];
+	}
+	size = path.size();
+	for (int i = size - 1; i >= 0; i--) {
+		string arrow = (i == 0) ? "" : " -> ";
+		cout << nodes[path[i]] << arrow;
+	}
+	cout << endl;
+}
 
-	//Printing the Weighted Graph Matrix
+int** performDijkstra(string startNode, string endNode, int **fileMatrix,
+		int size) {
+	int start = getIndex(startNode);
 
-//	for (int i = 0; i < size; i++) {
-//		for (int j = 0; j < size; j++) {
-//			string space = ((fileMatrix[i][j] < 10) ? ("   ") :
-//							(fileMatrix[i][j] < 100) ? ("  ") : (" "));
-//			cout << fileMatrix[i][j] << space;
-//		}
-//		cout << endl;
-//	}
-
-	int Q[size][3];
+	int **Q = 0;
+	Q = new int*[size];
 	for (int i = 0; i < size; i++) { //setting up the queue
-
+		Q[i] = new int[3];
 		Q[i][0] = -1; // setting penultimate vertex to -1 initially
 		if (i == start) {
 			Q[i][1] = 0; //setting distance 0 for src
@@ -82,12 +77,12 @@ int main() {
 	}
 
 	//for printing the Q
-//	for(int i = 0; i < 10; i++){
-//		for(int j = 0; j < 3; j++){
-//			cout<<Q[i][j]<< " " ;
-//		}
-//		cout<<"\n";
-//	}
+	//	for(int i = 0; i < 10; i++){
+	//		for(int j = 0; j < 3; j++){
+	//			cout<<Q[i][j]<< " " ;
+	//		}
+	//		cout<<"\n";
+	//	}
 
 	for (int i = 0; i < size; i++) {
 
@@ -126,42 +121,55 @@ int main() {
 
 	}
 
-//	//for printing the Q
-//	for (int i = 0; i < 10; i++) {
-//		for (int j = 0; j < 3; j++) {
-//			cout << Q[i][j] << " ";
-//		}
-//		cout << "\n";
-//	}
+	//	//for printing the Q
+	//	for (int i = 0; i < 10; i++) {
+	//		for (int j = 0; j < 3; j++) {
+	//			cout << Q[i][j] << " ";
+	//		}
+	//		cout << "\n";
+	//	}
+	return Q;
+}
 
-	//Length of desired path
-	//Quickest route to endNode
-
-	cout<<"The shortest distance between "<<startNode<<" to "<<endNode<<" is:"<<Q[end][1]<<endl;
-
-	cout << "Shortest Path from "<<startNode<<" to "<< endNode<< " is:"<< endl;
-	vector<int> path;
-	path.push_back(end);
-	while (endNode != startNode) {
-		int index = getIndex(endNode);
-		path.push_back(Q[index][0]);
-		endNode = nodes[Q[index][0]];
-	}
-
-	size=path.size();
-	for(int i=size-1;i>=0;i--){
-		if(i==0){
-			cout<<nodes[path[i]]<<endl;
+bool contains(vector<int> vector, int node) {
+	bool found = false;
+	int size = vector.size();
+	for (int i = 0; i < size; i++) {
+		if (vector[i] == node) {
+			found = true;
+			break;
 		}
-		else{
-			cout<<nodes[path[i]]<<" -> ";
-		}
-
 	}
+	return found;
+}
 
-
-
-
+void determineInfo(string *startNode, string *endNode, int size) {
+	cout << "Enter start node: " << endl;
+	bool startNodeValid = false;
+	while (!startNodeValid) {
+		cin >> *startNode;
+		for (int i = 0; i < size; i++) {
+			if (*startNode == nodes[i]) {
+				startNodeValid = true;
+			}
+		}
+		if (!startNodeValid) {
+			cout << "This node is not valid. Try again" << endl;
+		}
+	}
+	cout << "Enter end node: " << endl;
+	bool endNodeValid = false;
+	while (!endNodeValid) {
+		cin >> *endNode;
+		for (int i = 0; i < size; i++) {
+			if (*endNode == nodes[i]) {
+				endNodeValid = true;
+			}
+		}
+		if (!endNodeValid) {
+			cout << "This node is not valid. Try again" << endl;
+		}
+	}
 }
 
 int getIndex(string node) {
@@ -174,4 +182,43 @@ int getIndex(string node) {
 	}
 	return index;
 }
-///////////
+int** determineMatrix(int size) {
+	ifstream file;
+	file.open("DijkstraExample.txt");
+	int intMatrixSize;
+	file >> intMatrixSize;
+	int x;
+	int **fileMatrix = 0;
+	fileMatrix = new int*[size];
+	for (int i = 0; i < size; i++) {
+		fileMatrix[i] = new int[size];
+		for (int j = 0; j < size; j++) {
+			file >> x;
+			fileMatrix[i][j] = x;
+		}
+	}
+	file.close();
+	return fileMatrix;
+}
+//Determines the size of the matrix
+int determineMatrixSize() {
+	ifstream file;
+	file.open("DijkstraExample.txt");
+	int intMatrixSize;
+	file >> intMatrixSize;
+	file.close();
+	return intMatrixSize;
+}
+
+//Printing the Weighted Graph Matrix
+void printMatrix(int **matrix, int size) {
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			string space = ((matrix[i][j] < 10) ? ("   ") :
+							(matrix[i][j] < 100) ? ("  ") : (" "));
+			cout << matrix[i][j] << space;
+		}
+		cout << endl;
+	}
+}
+
