@@ -19,6 +19,7 @@ bool fullySolved(vector<int> board, int n);
 vector<int> emptyBoard(vector<int> board, int n);
 vector<int> nextFullSolvedBoard(vector<int> board, int n);
 vector<int> fillBoard(vector<int> board, int n);
+vector<int> correctIllegalBoard(vector<int> board, int n);
 void printBoard(vector<int> board);
 
 int main() {
@@ -32,6 +33,9 @@ int main() {
 	return 0;
 }
 
+/*
+ *
+ */
 bool isLegalPosition(vector<int> board, int n) {
 	bool result = true;
 	int arraySize = board.size();
@@ -47,6 +51,9 @@ bool isLegalPosition(vector<int> board, int n) {
 	return result;
 }
 
+/*
+ *
+ */
 vector<int> nextLegalPosition(vector<int> board, int n) {
 	bool fulSolved = fullySolved(board, n);
 	bool perfSit = perfectSituation(board, n);
@@ -58,12 +65,14 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 	} else if (isLegPos) {
 		board = fillBoard(board, n);
 	} else {
-		cout << "This board is invalid for nextLegalPosition" << endl;
-		exit(1);
+		board = correctIllegalBoard(board, n);
 	}
 	return board;
 }
 
+/*
+ *
+ */
 bool hasDuplicate(vector<int> board) {
 	bool result = false;
 	int size = board.size();
@@ -78,6 +87,9 @@ bool hasDuplicate(vector<int> board) {
 	return result;
 }
 
+/*
+ *
+ */
 bool intersectDiagonally(vector<int> board) {
 	bool intersect = false;
 	int size = board.size();
@@ -94,16 +106,25 @@ bool intersectDiagonally(vector<int> board) {
 	return intersect;
 }
 
+/*
+ *
+ */
 bool perfectSituation(vector<int> board, int n) {
 	bool result = false;
 	return result;
 }
 
+/*
+ *
+ */
 bool fullySolved(vector<int> board, int n) {
 	bool result = false;
 	return result;
 }
 
+/*
+ *
+ */
 vector<int> emptyBoard(vector<int> board, int n) {
 	vector<int> emptyBoard;
 	int boardSize = board.size();
@@ -113,14 +134,30 @@ vector<int> emptyBoard(vector<int> board, int n) {
 	return board;
 }
 
+/*
+ *
+ */
 vector<int> nextFullSolvedBoard(vector<int> board, int n) {
 	return board;
 }
 
+/*
+ *
+ */
 vector<int> fillBoard(vector<int> board, int n) {
 	return board;
 }
 
+/*
+ *
+ */
+vector<int> correctIllegalBoard(vector<int> board, int n) {
+	return board;
+}
+
+/*
+ *
+ */
 void printBoard(vector<int> board) {
 	int boardSize = board.size();
 	cout << "Board size is " << boardSize << endl;
