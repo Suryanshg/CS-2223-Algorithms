@@ -11,8 +11,14 @@
 using namespace std;
 
 bool isLegalPosition(vector<int> board, int n);
+vector<int> nextLegalPosition(vector<int> board, int n);
 bool hasDuplicate(vector<int> board);
 bool intersectDiagonally(vector<int> board);
+bool perfectSituation(vector<int> board, int n);
+bool fullySolved(vector<int> board, int n);
+vector<int> emptyBoard(vector<int> board, int n);
+vector<int> nextFullSolvedBoard(vector<int> board, int n);
+vector<int> fillBoard(vector<int> board, int n);
 void printBoard(vector<int> board);
 
 int main() {
@@ -20,6 +26,7 @@ int main() {
 	int n = 8;
 	printBoard(board);
 	bool legPos = isLegalPosition(board, n);
+	board = nextLegalPosition(board, n);
 	//1 is true, 0 is false
 	cout << "Is legal position result is " << legPos << endl;
 	return 0;
@@ -38,6 +45,23 @@ bool isLegalPosition(vector<int> board, int n) {
 		result = false;
 	}
 	return result;
+}
+
+vector<int> nextLegalPosition(vector<int> board, int n) {
+	bool fulSolved = fullySolved(board, n);
+	bool perfSit = perfectSituation(board, n);
+	bool isLegPos = isLegalPosition(board, n);
+	if (fulSolved) {
+		board = emptyBoard(board, n);
+	} else if (perfSit) {
+		board = nextFullSolvedBoard(board, n);
+	} else if (isLegPos) {
+		board = fillBoard(board, n);
+	} else {
+		cout << "This board is invalid for nextLegalPosition" << endl;
+		exit(1);
+	}
+	return board;
 }
 
 bool hasDuplicate(vector<int> board) {
@@ -70,8 +94,35 @@ bool intersectDiagonally(vector<int> board) {
 	return intersect;
 }
 
+bool perfectSituation(vector<int> board, int n) {
+	bool result = false;
+	return result;
+}
+
+bool fullySolved(vector<int> board, int n) {
+	bool result = false;
+	return result;
+}
+
+vector<int> emptyBoard(vector<int> board, int n) {
+	vector<int> emptyBoard;
+	int boardSize = board.size();
+	for (int i = 0; i < boardSize; i++) {
+		emptyBoard.insert(emptyBoard.begin(), 0);
+	}
+	return board;
+}
+
+vector<int> nextFullSolvedBoard(vector<int> board, int n) {
+	return board;
+}
+
+vector<int> fillBoard(vector<int> board, int n) {
+	return board;
+}
+
 void printBoard(vector<int> board) {
-	int boardSize = board.size(); //sizeof(board) / sizeof(board[0]);
+	int boardSize = board.size();
 	cout << "Board size is " << boardSize << endl;
 	cout << "board looks like" << endl;
 	for (int i = 0; i < boardSize; i++) {
@@ -79,4 +130,3 @@ void printBoard(vector<int> board) {
 	}
 	cout << endl;
 }
-
