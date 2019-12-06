@@ -23,7 +23,7 @@ void processWord(string *ravenMap, string word, int h, int size);
 void printHashTable(string *hashTable, int size);
 
 int main() {
-	int size = 200;
+	int size = 1000;
 	string *closeHashTable = determineCloseHashing(size);
 	printHashTable(closeHashTable, size);
 	determinePartA(closeHashTable, size); //Question 3 part a
@@ -41,8 +41,8 @@ int main() {
 string* determineCloseHashing(int size) {
 	int h;
 	ifstream file;
-//	file.open("Raven.txt");
-	file.open("GettysburgAddress.txt");
+	file.open("Raven.txt");
+//  file.open("GettysburgAddress.txt");
 	string *ravenMap = new string[size];
 	string word;
 	word.clear();
@@ -54,9 +54,6 @@ string* determineCloseHashing(int size) {
 			string token;
 			while ((pos = listOfWords.find('-')) != string::npos) {
 				token = listOfWords.substr(0, pos);
-				cout << "--------------------" << endl;
-				cout << "token is " << token << endl;
-				cout << "--------------------" << endl;
 				token = processString(token);
 				if (token != "") { //hash the words
 					//Levitin process
@@ -131,8 +128,10 @@ void determinePartB(string *hashTable, int size) {
 		while (hashTable[i] == "") {
 			i++;
 		}
+		cout << "cEnd is " << cEnd << endl;
 		cStart = i - 1;
-		clen = cStart + cEnd - size + 2;
+		cout << "cStart is " << cStart << endl;
+		clen = (size - cEnd) + cStart + 1;
 		if (clen > maxlen) {
 			maxEnd = cEnd;
 			maxStart = cStart;
@@ -189,7 +188,7 @@ void determinePartC(string *hashTable, int size) {
 			i++;
 		}
 		cStart = i - 1;
-		clen = cStart + cEnd - size + 2;
+		clen = (size - cEnd) + cStart + 1;
 		if (clen > maxlen) {
 			maxEnd = cEnd;
 			maxStart = cStart;
@@ -252,9 +251,10 @@ void determinePartE(string *hashTable, int size) {
 			}
 		}
 	}
-	cout << hashTable[maxHash] << " is stored the farthest that is " << maxDist
-			<< " units from its actual hash: "
-			<< calcHashWord(hashTable[maxHash], size) << endl;
+	cout << hashTable[maxHash] << " drifted more than any other word, " << endl;
+	cout << maxDist << " places from hash address "
+			<< calcHashWord(hashTable[maxHash], size)
+			<< " all the way to position " << maxHash << endl;
 }
 
 /*
@@ -265,8 +265,12 @@ int calcHashWord(string word, int size) {
 	const int C = 123;
 	const int m = size;
 	int s = word.size();
-	for (int i = 0; i < s; i++) {
-		h = (h * C + word[i]) % m;
+	if (word == "") {
+		h = -1;
+	} else {
+		for (int i = 0; i < s; i++) {
+			h = (h * C + word[i]) % m;
+		}
 	}
 	return h;
 }
@@ -292,7 +296,6 @@ string processString(string input) {
  * if the word is in the array, nothing happens
  */
 void processWord(string *ravenMap, string word, int h, int size) {
-	cout << word << ":  h value = " << h << " ";
 	if (ravenMap[h] == word) { //word is in map
 	} else if (ravenMap[h] == "") {	//word isn't in hashmap
 		ravenMap[h] = word;
@@ -318,7 +321,7 @@ void processWord(string *ravenMap, string word, int h, int size) {
  */
 void printHashTable(string *hashTable, int size) {
 	for (int i = 0; i < size; i++) {
-		cout << "index :" << i << " ravenMap[" << i << "]: " << hashTable[i]
-				<< endl;
+		cout << i << "   " << hashTable[i] << "   "
+				<< calcHashWord(hashTable[i], size) << endl;
 	}
 }
