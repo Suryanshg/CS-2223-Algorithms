@@ -17,13 +17,13 @@ void determinePartB(string *hashTable, int size);
 void determinePartC(string *hashTable, int size);
 void determinePartD(string *hashTable, int size);
 void determinePartE(string *hashTable, int size);
-int calcHashWord(string word);
+int calcHashWord(string word, int size);
 string processString(string input);
 void processWord(string *ravenMap, string word, int h, int size);
 void printHashTable(string *hashTable, int size);
 
 int main() {
-	int size = 1000;
+	int size = 200;
 	string *closeHashTable = determineCloseHashing(size);
 	printHashTable(closeHashTable, size);
 	determinePartA(closeHashTable, size); //Question 3 part a
@@ -41,7 +41,8 @@ int main() {
 string* determineCloseHashing(int size) {
 	int h;
 	ifstream file;
-	file.open("Raven.txt");
+//	file.open("Raven.txt");
+	file.open("GettysburgAddress.txt");
 	string *ravenMap = new string[size];
 	string word;
 	word.clear();
@@ -51,7 +52,7 @@ string* determineCloseHashing(int size) {
 			word = processString(word);
 			if (word != "") { //hash the words
 				//Levitin process
-				h = calcHashWord(word);
+				h = calcHashWord(word, size);
 				processWord(ravenMap, word, h, size);
 				word.clear();
 			}
@@ -75,7 +76,7 @@ void determinePartA(string *hashTable, int size) {
 	cout << "Part a" << endl;
 	cout << "Number of non-empty addresses in table is " << nonEmptyAddress
 			<< endl;
-	cout << "Load Factor is " << nonEmptyAddress / 1000 << endl;
+	cout << "Load Factor is " << nonEmptyAddress / size << endl;
 }
 
 /*
@@ -193,10 +194,10 @@ void determinePartD(string *hashTable, int size) {
 	int maxNum = 0, maxHash = 0, hash;
 	for (int i = 0; i < size; i++) {
 		if (hashTable[i] != "") {
-			hash = calcHashWord(hashTable[i]);
+			hash = calcHashWord(hashTable[i], size);
 			int curNum = 0;
 			for (int j = 0; j < size; j++) {
-				if (calcHashWord(hashTable[j]) == hash) {
+				if (calcHashWord(hashTable[j], size) == hash) {
 					curNum++;
 				}
 			}
@@ -222,7 +223,7 @@ void determinePartE(string *hashTable, int size) {
 	for (int i = 0; i < size; i++) {
 		int curDist = 0;
 		if (hashTable[i] != "") {
-			hash = calcHashWord(hashTable[i]);
+			hash = calcHashWord(hashTable[i], size);
 			if (hash <= i) {
 				curDist = i - hash;
 			} else { // overlooped array
@@ -236,16 +237,16 @@ void determinePartE(string *hashTable, int size) {
 	}
 	cout << hashTable[maxHash] << " is stored the farthest that is " << maxDist
 			<< " units from its actual hash: "
-			<< calcHashWord(hashTable[maxHash]) << endl;
+			<< calcHashWord(hashTable[maxHash], size) << endl;
 }
 
 /*
  * computes the hash for a given word
  */
-int calcHashWord(string word) {
+int calcHashWord(string word, int size) {
 	int h = 0;
 	const int C = 123;
-	const int m = 1000;
+	const int m = size;
 	int s = word.size();
 	for (int i = 0; i < s; i++) {
 		h = (h * C + word[i]) % m;
