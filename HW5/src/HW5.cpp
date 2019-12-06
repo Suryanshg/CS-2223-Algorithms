@@ -49,12 +49,29 @@ string* determineCloseHashing(int size) {
 	if (file.is_open()) {
 		while (!file.eof()) {
 			file >> word;
-			word = processString(word);
-			if (word != "") { //hash the words
+			string listOfWords = word;
+			size_t pos = 0;
+			string token;
+			while ((pos = listOfWords.find('-')) != string::npos) {
+				token = listOfWords.substr(0, pos);
+				cout << "--------------------" << endl;
+				cout << "token is " << token << endl;
+				cout << "--------------------" << endl;
+				token = processString(token);
+				if (token != "") { //hash the words
+					//Levitin process
+					h = calcHashWord(token, size);
+					processWord(ravenMap, token, h, size);
+					token.clear();
+				}
+				listOfWords.erase(0, pos + 1);
+			}
+			listOfWords = processString(listOfWords);
+			if (listOfWords != "") { //hash the words
 				//Levitin process
-				h = calcHashWord(word, size);
-				processWord(ravenMap, word, h, size);
-				word.clear();
+				h = calcHashWord(listOfWords, size);
+				processWord(ravenMap, listOfWords, h, size);
+				listOfWords.clear();
 			}
 		}
 	}
