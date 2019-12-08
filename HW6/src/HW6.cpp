@@ -15,7 +15,8 @@ vector<int> nextLegalPosition(vector<int> board, int n);
 bool hasDuplicate(vector<int> board);
 bool intersectDiagonally(vector<int> board);
 bool perfectSituation(vector<int> board, int n);
-bool fullySolved(vector<int> board, int n);
+bool noLegalPosition(vector<int> board, int n);
+vector<int> SUCCESSOR(vector<int> board, int n);
 vector<int> emptyBoard(vector<int> board, int n);
 vector<int> nextFullSolvedBoard(vector<int> board, int n);
 vector<int> fillBoard(vector<int> board, int n);
@@ -55,7 +56,14 @@ bool isLegalPosition(vector<int> board, int n) {
  *
  */
 vector<int> nextLegalPosition(vector<int> board, int n) {
-	bool fulSolved = fullySolved(board, n);
+	return SUCCESSOR(board, n);
+}
+
+/*
+ *
+ */
+vector<int> SUCCESSOR(vector<int> board, int n) {
+	bool fulSolved = noLegalPosition(board, n);
 	bool perfSit = perfectSituation(board, n);
 	bool isLegPos = isLegalPosition(board, n);
 	if (fulSolved) {
@@ -104,6 +112,14 @@ bool intersectDiagonally(vector<int> board) {
 		}
 	}
 	return intersect;
+}
+
+/*
+ *
+ */
+bool noLegalPosition(vector<int> board, int n) {
+	bool result = false;
+	return result;
 }
 
 /*
