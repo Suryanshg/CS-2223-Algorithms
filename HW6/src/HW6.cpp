@@ -24,14 +24,17 @@ vector<int> correctIllegalBoard(vector<int> board, int n);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 6, 8, 3, 5, 0, 0, 0 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // { 1, 6, 8, 3, 5, 0, 0, 0 }; //{ 1, 6, 8, 3, 7, 4, 2, 5 }; //{ 1, 6, 8, 3, 7, 0, 0, 0}
+	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5 }; //{ 1, 6, 8, 3, 5, 0, 0, 0 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // { 1, 6, 8, 3, 5, 0, 0, 0 }; // { 1, 6, 8, 3, 5, 0, 0, 0 }; //{ 1, 6, 8, 3, 7, 4, 2, 5 }; //{ 1, 6, 8, 3, 7, 0, 0, 0}
 	int n = 8;
+	cout << "Initial board" << endl;
 	printBoard(board);
 	bool legPos = isLegalPosition(board, n);
-	board = nextLegalPosition(board, n);
-	//1 is true, 0 is false
-	cout << "Is legal position result is " << legPos << endl;
-	return 0;
+
+	board = SUCCESSOR(board, n);
+
+	cout << "IsLegalPosition result is " << legPos << endl;
+	cout << "Successor of board is  " << endl;
+	printBoard(board);
 }
 
 /*
@@ -63,19 +66,45 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
  *
  */
 vector<int> SUCCESSOR(vector<int> board, int n) {
-	bool fulSolved = noLegalPosition(board, n);
-	bool perfSit = perfectSituation(board, n);
-	bool isLegPos = isLegalPosition(board, n);
-	if (fulSolved) {
-		board = emptyBoard(board, n);
-	} else if (perfSit) {
-		board = nextFullSolvedBoard(board, n);
-	} else if (isLegPos) {
-		board = fillBoard(board, n);
-	} else {
-		board = correctIllegalBoard(board, n);
+	vector<int> successor;
+	int lastQueenRow;
+	int lastQueenCol;
+	for (int i = n - 1; i >= 0; i--) { //gets the position of the last queen
+		if (board[i] != 0) {
+			lastQueenRow = i;
+			lastQueenCol = board[i];
+			break;
+		}
 	}
-	return board;
+
+//	cout<<lastQueenRow<<endl;
+//	cout<<lastQueenCol<<endl;
+
+
+
+	for (int i = 0; i < n; i++) { // copy the contents before last queen
+		if(i<lastQueenRow){
+			successor.push_back(board[i]);
+		}
+		else{
+			successor.push_back(0);
+		}
+	}
+
+
+
+	if (lastQueenRow == 0 && lastQueenCol == 7) { // if on row1,col8 then return (0,0....0)
+		for (int i = 0; i < n; i++) {
+			successor[i] = 0;
+		}
+	} else if (lastQueenCol == n) {
+		successor[lastQueenRow - 1]++;
+	} else {
+		successor[lastQueenRow] = lastQueenCol + 1;
+	}
+
+	return successor;
+
 }
 
 /*
@@ -176,8 +205,8 @@ vector<int> correctIllegalBoard(vector<int> board, int n) {
  */
 void printBoard(vector<int> board) {
 	int boardSize = board.size();
-	cout << "Board size is " << boardSize << endl;
-	cout << "board looks like" << endl;
+//	cout << "Board size is " << boardSize << endl;
+//	cout << "board looks like" << endl;
 	for (int i = 0; i < boardSize; i++) {
 		cout << board[i] << " ";
 	}
