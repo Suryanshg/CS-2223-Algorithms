@@ -21,19 +21,20 @@ vector<int> emptyBoard(vector<int> board, int n);
 vector<int> nextFullSolvedBoard(vector<int> board, int n);
 vector<int> fillBoard(vector<int> board, int n);
 vector<int> correctIllegalBoard(vector<int> board, int n);
+int getNumOfQueens(vector<int> board);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5 }; //{ 1, 6, 8, 3, 5, 0, 0, 0 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // { 1, 6, 8, 3, 5, 0, 0, 0 }; // { 1, 6, 8, 3, 5, 0, 0, 0 }; //{ 1, 6, 8, 3, 7, 4, 2, 5 }; //{ 1, 6, 8, 3, 7, 0, 0, 0}
-	int n = 8;
+	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5 }; // works well { 1, 6, 8, 3, 7, 0, 0, 0 }; // works well { 1, 6, 8, 3, 5, 0, 0, 0 }; //{ 1, 6, 8, 3, 7, 4, 2, 5 };
+	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
 	bool legPos = isLegalPosition(board, n);
-
-	board = SUCCESSOR(board, n);
-
+//	board = SUCCESSOR(board, n);
+	board = nextLegalPosition(board, n);
 	cout << "IsLegalPosition result is " << legPos << endl;
-	cout << "Successor of board is  " << endl;
+	cout << "Next Legal Position is" << endl;
+//	cout << "SUCCESSOR IS" << endl;
 	printBoard(board);
 }
 
@@ -59,7 +60,39 @@ bool isLegalPosition(vector<int> board, int n) {
  *
  */
 vector<int> nextLegalPosition(vector<int> board, int n) {
-	return SUCCESSOR(board, n);
+	vector<int> successor;
+	//works well
+	if (!isLegalPosition(board, n)) {
+		successor = SUCCESSOR(board, n);
+		while (!isLegalPosition(successor, n)) { // board is illegal, make last queen legal
+			successor = SUCCESSOR(successor, n);
+		}
+		//works well
+	} else if ((isLegalPosition(board, n)) && (getNumOfQueens(board) == n)) { // board is fully solved
+		successor = SUCCESSOR(board, n);
+		while (!isLegalPosition(successor, n)) {
+			successor = SUCCESSOR(successor, n);
+		}
+		//works well
+	} else if (isLegalPosition(board, n)) { // board is legal, make new queen
+		successor = board;
+		successor.push_back(1);
+		while (!isLegalPosition(successor, n)) {
+			successor = SUCCESSOR(successor, n);
+		}
+	}
+	return successor;
+}
+
+int getNumOfQueens(vector<int> board) {
+	int boardSize = board.size();
+	int counter = 0;
+	for (int i = 0; i < boardSize; i++) {
+		if (board[i] != 0) {
+			counter++;
+		}
+	}
+	return counter;
 }
 
 /*
@@ -67,44 +100,53 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
  */
 vector<int> SUCCESSOR(vector<int> board, int n) {
 	vector<int> successor;
-	int lastQueenRow;
-	int lastQueenCol;
-	for (int i = n - 1; i >= 0; i--) { //gets the position of the last queen
-		if (board[i] != 0) {
+	int lastQueenRow = 0;
+	int lastQueenCol = 0;
+	for (int i = n; i > 0; i--) { //gets the position of the last queen
+		if (board[i - 1] != 0) {
 			lastQueenRow = i;
-			lastQueenCol = board[i];
+			lastQueenCol = board[i - 1];
 			break;
 		}
 	}
 
-//	cout<<lastQueenRow<<endl;
-//	cout<<lastQueenCol<<endl;
-
-
-
 	for (int i = 0; i < n; i++) { // copy the contents before last queen
-		if(i<lastQueenRow){
+		if (i <= lastQueenRow - 1) {
 			successor.push_back(board[i]);
-		}
-		else{
+		} else {
 			successor.push_back(0);
 		}
 	}
 
-
-
-	if (lastQueenRow == 0 && lastQueenCol == 7) { // if on row1,col8 then return (0,0....0)
-		for (int i = 0; i < n; i++) {
-			successor[i] = 0;
+	int notFullRow;
+	int notFullCol;
+	if ((lastQueenCol == n) && (lastQueenRow == n)) {
+		for (int i = n; i > 0; i--) { //gets the position of the last queen that is not n value
+			if (board[i - 1] != n) {
+				notFullRow = i;
+				notFullCol = board[i - 1];
+				break;
+			} else {
+				successor.pop_back();
+			}
 		}
-	} else if (lastQueenCol == n) {
-		successor[lastQueenRow - 1]++;
+		for (int i = notFullRow - 1; i < n; i++) { // copy the contents before last queen
+			if (i == (notFullRow - 1)) {
+				successor[notFullRow - 1] = notFullCol + 1;
+			} else {
+				successor.push_back(0);
+			}
+		}
+//		cout << "notFullRow is " << notFullRow << endl;
+//		cout << "notFullCol is " << notFullCol << endl;
+	} else if (lastQueenRow == n) {
+		//	cout << "lastQueenRow is " << lastQueenRow << endl;
+		//	cout << "lastQueenCol is " << lastQueenCol << endl;
+		successor[lastQueenRow - 1] = lastQueenCol + 1;
 	} else {
-		successor[lastQueenRow] = lastQueenCol + 1;
+		successor[lastQueenRow] = 1;
 	}
-
 	return successor;
-
 }
 
 /*
