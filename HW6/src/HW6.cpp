@@ -214,7 +214,7 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 
 	int notFullRow;
 	int notFullCol;
-	if ((lastQueenCol == n) && (lastQueenRow == n)) {
+	if ((lastQueenCol == n) && (lastQueenRow == n-1)) {
 		for (int i = n; i > 0; i--) { //gets the position of the last queen that is not n value
 			if (board[i - 1] != n) {
 				notFullRow = i;
