@@ -11,9 +11,13 @@
 using namespace std;
 
 bool isLegalPosition(vector<int> board, int n);
+bool isLegalPosition2(vector<int> board, int n);
 vector<int> nextLegalPosition(vector<int> board, int n);
+vector<int> nextLegalPosition2(vector<int> board, int n);
 bool hasDuplicate(vector<int> board);
 bool intersectDiagonally(vector<int> board);
+bool hasDuplicate2(vector<int> board);
+bool intersectDiagonally2(vector<int> board);
 vector<int> SUCCESSOR(vector<int> board, int n);
 bool emptyRow(vector<int> board, int n);
 void printBoard(vector<int> board);
@@ -33,13 +37,17 @@ int main() {
 	for (int i = 4; i <= 100; i++) {
 		vector<int> newBoard;
 		for (int j = 0; j < i; j++) {
-			newBoard.push_back(1);
+			if (j == 0) {
+				newBoard.push_back(1);
+			} else {
+				newBoard.push_back(0);
+			}
 		}
-		bool newBoardLegal = isLegalPosition(newBoard, i);
+		bool newBoardLegal = isLegalPosition2(newBoard, i);
 		bool zeroRow = emptyRow(newBoard, i);
 		while (!(newBoardLegal && !zeroRow)) {
-			newBoard = nextLegalPosition(newBoard, i);
-			newBoardLegal = isLegalPosition(newBoard, i);
+			newBoard = nextLegalPosition2(newBoard, i);
+			newBoardLegal = isLegalPosition2(newBoard, i);
 			zeroRow = emptyRow(newBoard, i);
 		}
 		cout << "First board solution n = " << i << " is " << endl;
@@ -53,12 +61,28 @@ int main() {
  */
 bool isLegalPosition(vector<int> board, int n) {
 	bool result = true;
-	int arraySize = board.size();
-	bool duplicateCol = hasDuplicate(board);
+
+	bool duplicateCol = hasDuplicate(board); // only checks if last queen is repeated or not
 	bool intersectDiag = intersectDiagonally(board);
-	if (arraySize < n) {
+
+	if (duplicateCol) {
 		result = false;
-	} else if (duplicateCol) {
+	} else if (intersectDiag) {
+		result = false;
+	}
+	return result;
+}
+
+/*
+ *
+ */
+bool isLegalPosition2(vector<int> board, int n) {
+	bool result = true;
+
+	bool duplicateCol = hasDuplicate2(board); // only checks if last queen is repeated or not
+	bool intersectDiag = intersectDiagonally2(board);
+
+	if (duplicateCol) {
 		result = false;
 	} else if (intersectDiag) {
 		result = false;
@@ -81,6 +105,18 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 /*
  *
  */
+vector<int> nextLegalPosition2(vector<int> board, int n) {
+	vector<int> successor;
+	successor = SUCCESSOR(board, n);
+	while (!isLegalPosition2(successor, n)) {
+		successor = SUCCESSOR(successor, n);
+	}
+	return successor;
+}
+
+/*
+ *
+ */
 bool hasDuplicate(vector<int> board) {
 	bool result = false;
 	int size = board.size();
@@ -90,6 +126,33 @@ bool hasDuplicate(vector<int> board) {
 				result = true;
 				break;
 			}
+		}
+	}
+	return result;
+}
+
+int getLastQueenRow(vector<int> board) { //gets the last queens row
+	int lastQueenRow = 0;
+	int size = board.size();
+	for (int i = size; i > 0; i--) { //gets the position of the last queen
+		if (board[i] != 0) {
+			lastQueenRow = i;
+			break;
+		}
+	}
+	return lastQueenRow;
+}
+
+/*
+ *
+ */
+bool hasDuplicate2(vector<int> board) { //only checks last queen
+	bool result = false;
+	int lastQueenRow = getLastQueenRow(board);
+	for (int i = 0; i < lastQueenRow - 1; i++) {
+		if (board[i] == board[lastQueenRow]) {
+			result = true;
+			break;
 		}
 	}
 	return result;
@@ -109,6 +172,18 @@ bool intersectDiagonally(vector<int> board) {
 					break;
 				}
 			}
+		}
+	}
+	return intersect;
+}
+
+bool intersectDiagonally2(vector<int> board) { //only checks last queen
+	bool intersect = false;
+	int lastQueenRow = getLastQueenRow(board);
+	for (int i = 0; i < lastQueenRow - 1; i++) {
+		if (abs(board[i] - board[lastQueenRow]) == abs(i - lastQueenRow)) { //is a diagonal value
+			intersect = true;
+			break;
 		}
 	}
 	return intersect;
