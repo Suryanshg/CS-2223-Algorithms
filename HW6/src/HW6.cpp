@@ -233,7 +233,7 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 		}
 //		cout << "notFullRow is " << notFullRow << endl;
 //		cout << "notFullCol is " << notFullCol << endl;
-	} else if (lastQueenRow == n) {
+	} else if (lastQueenRow == n-1) {
 		//	cout << "lastQueenRow is " << lastQueenRow << endl;
 		//	cout << "lastQueenCol is " << lastQueenCol << endl;
 		successor[lastQueenRow - 1] = lastQueenCol + 1;
