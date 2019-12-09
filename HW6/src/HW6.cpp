@@ -25,7 +25,7 @@ int getNumOfQueens(vector<int> board);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5 }; // works well { 1, 6, 8, 3, 7, 0, 0, 0 }; // works well { 1, 6, 8, 3, 5, 0, 0, 0 }; //{ 1, 6, 8, 3, 7, 4, 2, 5 };
+	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5 };//{ 1, 6, 8, 3, 5, 0, 0, 0 }; // works well { 1, 6, 8, 3, 7, 0, 0, 0 }; // works well  //{ 1, 6, 8, 3, 7, 4, 2, 5 };
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
@@ -62,24 +62,9 @@ bool isLegalPosition(vector<int> board, int n) {
 vector<int> nextLegalPosition(vector<int> board, int n) {
 	vector<int> successor;
 	//works well
-	if (!isLegalPosition(board, n)) {
-		successor = SUCCESSOR(board, n);
-		while (!isLegalPosition(successor, n)) { // board is illegal, make last queen legal
-			successor = SUCCESSOR(successor, n);
-		}
-		//works well
-	} else if ((isLegalPosition(board, n)) && (getNumOfQueens(board) == n)) { // board is fully solved
-		successor = SUCCESSOR(board, n);
-		while (!isLegalPosition(successor, n)) {
-			successor = SUCCESSOR(successor, n);
-		}
-		//works well
-	} else if (isLegalPosition(board, n)) { // board is legal, make new queen
-		successor = board;
-		successor.push_back(1);
-		while (!isLegalPosition(successor, n)) {
-			successor = SUCCESSOR(successor, n);
-		}
+	successor = SUCCESSOR(board, n);
+	while(!isLegalPosition(successor, n)){
+		successor = SUCCESSOR(successor, n);
 	}
 	return successor;
 }
