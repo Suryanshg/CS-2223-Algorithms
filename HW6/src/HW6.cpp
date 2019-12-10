@@ -19,7 +19,7 @@ int getNumOfQueens(vector<int> board);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
+	vector<int> board = { 1, 6, 8, 3, 7, 0, 0, 0 };//{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
@@ -65,21 +65,25 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 	vector<int> successor;
 	int size = board.size();
 	 //works
-	if (!isLegalPosition(board, n)) {
+	if (!isLegalPosition(board, n)) { // board is illegal, make last queen legal
 		successor = SUCCESSOR(board, n);
-		{
+		while(!(isLegalPosition(successor,n))){ //until i get the legal successor
 			successor = SUCCESSOR(successor, n);
 		}
-	} else if ((isLegalPosition(board, n)) && (getNumOfQueens(board) == n)) {
+	} else if ((isLegalPosition(board, n)) && (getNumOfQueens(board) == n)) { //board is fully solved
 		successor = board;
-		cout<<"hello?"<<endl;
 		successor.pop_back();
 		successor = SUCCESSOR(successor, n);
 		while (!isLegalPosition(successor, n)) {
 			successor = SUCCESSOR(successor, n);
 		}
 		//works well
-	} else if (isLegalPosition(board, n)) {
+	} else if (isLegalPosition(board, n)) { //board is legal
+//		successor=board;
+//		successor.push_back(1);
+//		while(!(isLegalPosition(board,n))){
+//			successor=SUCCESSOR(successor,n);
+//		}
 		for(int i = 0; i < size; i++){
 			if(board[i] != 0){
 				successor.push_back(board[i]);
@@ -129,8 +133,8 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 		}
 	}
 
-//	cout<<lastQueenRow<<endl;
-//	cout<<lastQueenCol<<endl;
+	cout<<lastQueenRow<<endl;
+	cout<<lastQueenCol<<endl;
 
 	for (int i = 0; i < n; i++) { // copy the contents before last queen
 		if (i < lastQueenRow) {
@@ -140,12 +144,12 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 		}
 	}
 
-	if (lastQueenRow == 0 && lastQueenCol == 7) { // if on row1,col8 then return (0,0....0)
+	if (lastQueenRow == 0 && lastQueenCol == n) { // if on row1,col8 then return (0,0....0)
 		for (int i = 0; i < n; i++) {
 			successor[i] = 0;
 		}
 	} else if (lastQueenCol == n) {
-		successor[lastQueenRow - 1]++;
+		successor=SUCCESSOR(successor,n);
 	} else {
 		successor[lastQueenRow] = lastQueenCol + 1;
 	}
