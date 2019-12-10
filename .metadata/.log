@@ -10753,3 +10753,64 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/HW5/src/HW5.c
 
 !ENTRY org.eclipse.cdt.core 1 0 2019-12-09 18:18:07.624
 !MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 1.54 sec: 13,593 declarations; 21,409 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+!SESSION 2019-12-09 19:29:56.433 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=13.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-12-09 19:30:15.040
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex Galvan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:30:59.974
+!MESSAGE Indexed 'HW1' (2 sources, 132 headers) in 15.4 sec: 14,080 declarations; 22,451 references; 0 unresolved inclusions; 0 syntax errors; 3 unresolved names (0.0082%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:06.133
+!MESSAGE Indexed 'HW2' (1 sources, 139 headers) in 5.94 sec: 17,002 declarations; 27,001 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0045%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:06.329
+!MESSAGE Indexed 'GaussJordanElimination' (1 sources, 0 headers) in 0.045 sec: 33 declarations; 120 references; 3 unresolved inclusions; 0 syntax errors; 11 unresolved names (6.7%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:10.486
+!MESSAGE Indexed 'HW4' (1 sources, 124 headers) in 4.1 sec: 13,620 declarations; 21,570 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:15.144
+!MESSAGE Indexed 'HW5' (1 sources, 132 headers) in 4.63 sec: 14,742 declarations; 24,250 references; 0 unresolved inclusions; 0 syntax errors; 4 unresolved names (0.01%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:19.268
+!MESSAGE Indexed 'HW6' (1 sources, 130 headers) in 4.1 sec: 15,199 declarations; 25,261 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0049%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:34.897
+!MESSAGE Indexed 'graycodesarefun' (1 sources, 306 headers) in 15.6 sec: 50,317 declarations; 89,471 references; 0 unresolved inclusions; 0 syntax errors; 23 unresolved names (0.016%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:37.636
+!MESSAGE Indexed 'fastinversioncount' (1 sources, 126 headers) in 2.72 sec: 13,645 declarations; 21,550 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:40.262
+!MESSAGE Indexed 'easyinversioncount' (1 sources, 124 headers) in 2.61 sec: 13,589 declarations; 21,402 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:43.516
+!MESSAGE Indexed 'DijkstraAlgorithm' (1 sources, 138 headers) in 3.24 sec: 16,240 declarations; 27,614 references; 0 unresolved inclusions; 0 syntax errors; 4 unresolved names (0.0091%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-09 19:31:45.885
+!MESSAGE Indexed 'palindromecheck' (1 sources, 124 headers) in 2.36 sec: 13,593 declarations; 21,409 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+!SESSION 2019-12-09 19:47:19.242 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=13.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-12-09 19:47:56.563
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex Galvan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
