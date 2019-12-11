@@ -23,12 +23,12 @@ int main() {
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
-	//PART1
+	//Question 1
 	bool legPos = isLegalPosition(board, n);
 	string result = (legPos == 1) ? "True" : "False";
 	cout << "IsLegalPosition result is " << result << endl;
 
-	//PART2
+	//Question 2
 //	vector<int> successorBoard = SUCCESSOR(board, n);
 //	cout << "Successor of board is  " << endl;
 //	printBoard(successorBoard);
@@ -37,19 +37,42 @@ int main() {
 	cout << "Next legal board is  " << endl;
 	printBoard(nextLegalBoard);
 
-	//PART3
-	for (int i = 4; i <= 100; i++) {
+	//Question 3
+//	for (int i = 4; i <= 100; i++) {
+//		vector<int> newBoard;
+//		for (int j = 0; j < i; j++) {
+//			newBoard.push_back(0);
+//		}
+//		int numOfQueens = getNumOfQueens(newBoard);
+//		while (numOfQueens != i) {
+//			newBoard = nextLegalPosition(newBoard, i);
+//			numOfQueens = getNumOfQueens(newBoard);
+//		}
+//		cout << "First board solution n = " << i << " is " << endl;
+//		printBoard(newBoard);
+//	}
+	//Question 4
+	for (int i = 4; i <= 20; i++) {
 		vector<int> newBoard;
+		vector<int> emptyBoard;
 		for (int j = 0; j < i; j++) {
-			newBoard.push_back(0);
+			if (j == 0) {
+				newBoard.push_back(1);
+				emptyBoard.push_back(0);
+			} else if (j != 0) {
+				newBoard.push_back(0);
+				emptyBoard.push_back(0);
+			}
 		}
 		int numOfQueens = getNumOfQueens(newBoard);
-		while (numOfQueens != i) {
+		cout << "Solutions to " << i << " boards" << endl;
+		while (newBoard != emptyBoard) {
 			newBoard = nextLegalPosition(newBoard, i);
 			numOfQueens = getNumOfQueens(newBoard);
+			if (numOfQueens == i) {
+				printBoard(newBoard);
+			}
 		}
-		cout << "First board solution n = " << i << " is " << endl;
-		printBoard(newBoard);
 	}
 }
 
