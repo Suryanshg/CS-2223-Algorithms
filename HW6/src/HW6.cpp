@@ -19,7 +19,7 @@ int getNumOfQueens(vector<int> board);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 4, 2, 0 }; //{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
+	vector<int> board = { 1, 6, 8, 3, 7, 4, 2, 5}; //{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
@@ -29,13 +29,13 @@ int main() {
 	cout << "IsLegalPosition result is " << result << endl;
 
 	//PART2
-	vector<int> successorBoard = SUCCESSOR(board, n);
-	cout << "Successor of board is  " << endl;
-	printBoard(successorBoard);
+//	vector<int> successorBoard = SUCCESSOR(board, n);
+//	cout << "Successor of board is  " << endl;
+//	printBoard(successorBoard);
 
-//	vector<int> nextLegalBoard = nextLegalPosition(board, n);
-//	cout << "Next legal board is  " << endl;
-//	printBoard(nextLegalBoard);
+	vector<int> nextLegalBoard = nextLegalPosition(board, n);
+	cout << "Next legal board is  " << endl;
+	printBoard(nextLegalBoard);
 
 	//PART3
 }
@@ -104,15 +104,16 @@ bool intersectDiagonally(vector<int> board) {
  */
 vector<int> nextLegalPosition(vector<int> board, int n) {
 	vector<int> successor = SUCCESSOR(board, n);
-	int numOfQueens = getNumOfQueens(successor); // it may just be board.size();
-	while (!(isLegalPosition(successor, n) && !(numOfQueens = n))) {
-		successor = SUCCESSOR(successor, n);
-		cout << "printBoard" << endl;
-		printBoard(successor);
-		numOfQueens = getNumOfQueens(successor);
-		cout << "numOfQueens is " << numOfQueens << endl;
-	}
 	return successor;
+//	int numOfQueens = getNumOfQueens(successor); // it may just be board.size();
+//	while (!(isLegalPosition(successor, n) && !(numOfQueens = n))) {
+//		successor = SUCCESSOR(successor, n);
+//		cout << "printBoard" << endl;
+//		printBoard(successor);
+//		numOfQueens = getNumOfQueens(successor);
+//		cout << "numOfQueens is " << numOfQueens << endl;
+//	}
+//	return successor;
 }
 
 int getNumOfQueens(vector<int> board) {
@@ -154,8 +155,8 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 		}
 	}
 
-	cout << "Current successor looks like " << endl;
-	printBoard(successor);
+//	cout << "Current successor looks like " << endl;
+//	printBoard(successor);
 
 	int lastNonfullRow;
 	int lastNonfullCol;
@@ -168,8 +169,8 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 				break;
 			}
 		}
-		cout << "lastNonfullRow is " << lastNonfullRow << endl;
-		cout << "lastNonfullCol is " << lastNonfullCol << endl;
+//		cout << "lastNonfullRow is " << lastNonfullRow << endl;
+//		cout << "lastNonfullCol is " << lastNonfullCol << endl;
 		//increase counter for lastNonfullCol and trail by zeroes
 		successor.clear();
 		for (int i = 0; i < n; i++) {
@@ -177,14 +178,14 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 				successor.push_back(board[i]);
 			} else if (i == (lastNonfullRow - 1)) {
 				int newColNum = lastNonfullCol + 1;
-				cout << "newColNum is " << newColNum << endl;
+//				cout << "newColNum is " << newColNum << endl;
 				successor.push_back(newColNum);
 			} else if (i > (lastNonfullRow - 1)) {
 				successor.push_back(0);
 			}
 		}
-		cout << "new successor is " << endl;
-		printBoard(successor);
+//		cout << "new successor is " << endl;
+//		printBoard(successor);
 	}
 	// last row is not highest value
 	else if (lastQueenRow == n && lastQueenCol != n) {
@@ -202,8 +203,8 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 						break;
 					}
 				}
-				cout << "lastNonfullRow is " << lastNonfullRow << endl;
-				cout << "lastNonfullCol is " << lastNonfullCol << endl;
+//				cout << "lastNonfullRow is " << lastNonfullRow << endl;
+//				cout << "lastNonfullCol is " << lastNonfullCol << endl;
 				//increase counter for lastNonfullCol and trail by zeroes
 				successor.clear();
 				for (int i = 0; i < n; i++) {
@@ -211,7 +212,7 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 						successor.push_back(board[i]);
 					} else if (i == (lastNonfullRow - 1)) {
 						int newColNum = lastNonfullCol + 1;
-						cout << "newColNum is " << newColNum << endl;
+//						cout << "newColNum is " << newColNum << endl;
 						successor.push_back(newColNum);
 					} else if (i > (lastNonfullRow - 1)) {
 						successor.push_back(0);
