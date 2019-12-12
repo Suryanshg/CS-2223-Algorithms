@@ -16,10 +16,12 @@ bool hasDuplicate(vector<int> board);
 bool intersectDiagonally(vector<int> board);
 vector<int> SUCCESSOR(vector<int> board, int n);
 int getNumOfQueens(vector<int> board);
+bool noNegativeValue(vector<int> board, int n);
+bool noExplosiveValues(vector<int> board, int n);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 1, 0, 0, 0, 0, 0, 0 };//{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
+	vector<int> board = { 0, 0, 0, 0, 0, 0 }; //{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
@@ -39,26 +41,60 @@ int main() {
 
 	//PART3
 	//Question 3
-	for (int i = 4; i <= 100; i++) {
+//		for (int i = 4; i <= 100; i++) {
+//			vector<int> newBoard;
+//			for (int j = 0; j < i; j++) {
+//				if(j==0){
+//					newBoard.push_back(1);
+//				}
+//				else{
+//					newBoard.push_back(0);
+//				}
+//			}
+//			int numOfQueens = getNumOfQueens(newBoard);
+//			while (numOfQueens != i) {
+//				newBoard = nextLegalPosition(newBoard, i);
+//				numOfQueens = getNumOfQueens(newBoard);
+//			}
+//			cout << "First board solution n = " << i << " is " << endl;
+//			printBoard(newBoard);
+//		}
+
+	//Question 4
+
+	for (int i = 4; i <= 20; i++) {
+		int count = 0;
+		int numOfQueens = 0;
 		vector<int> newBoard;
+		vector<int> emptyBoard;
+		vector<int> previousBoard;
+		emptyBoard.assign(i, 0);
+		count = 0;
 		for (int j = 0; j < i; j++) {
-			if(j==0){
+			if (j == 0) {
 				newBoard.push_back(1);
-			}
-			else{
+
+			} else {
 				newBoard.push_back(0);
 			}
 		}
-		int numOfQueens = getNumOfQueens(newBoard);
-		while (numOfQueens != i) {
-			newBoard = nextLegalPosition(newBoard, i);
+		while (newBoard != emptyBoard) {
 			numOfQueens = getNumOfQueens(newBoard);
+//			printBoard(newBoard);
+			if (numOfQueens == i && isLegalPosition(newBoard, i)
+					&& (newBoard != previousBoard)
+					&& (noNegativeValue(newBoard, i))
+					&& (noExplosiveValues(newBoard, i))) { // as good as it'll get
+				count++;
+				previousBoard = newBoard;
+//					printBoard(newBoard);
+			}
+			newBoard = nextLegalPosition(newBoard, i);
 		}
-		cout << "First board solution n = " << i << " is " << endl;
-		printBoard(newBoard);
+
+		cout << "Number of Solutions to " << i << " queens problem is " << count
+				<< endl;
 	}
-
-
 }
 
 /*
@@ -88,7 +124,7 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 	//works
 	if (!isLegalPosition(board, n)) { // board is illegal, make last queen legal
 		successor = SUCCESSOR(board, n);
-		while(!(isLegalPosition(successor,n))){ //until i get the legal successor
+		while (!(isLegalPosition(successor, n))) { //until i get the legal successor
 			successor = SUCCESSOR(successor, n);
 		}
 	} else if ((isLegalPosition(board, n)) && (getNumOfQueens(board) == n)) { //board is fully solved
@@ -105,22 +141,22 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 		//		while(!(isLegalPosition(board,n))){
 		//			successor=SUCCESSOR(successor,n);
 		//		}
-		for(int i = 0; i < size; i++){
-			if(board[i] != 0){
+		for (int i = 0; i < size; i++) {
+			if (board[i] != 0) {
 				successor.push_back(board[i]);
-			} else if (board[i] == 0){
+			} else if (board[i] == 0) {
 				successor.push_back(1);
 				break;
 			}
 		}
-		while(successor.size() != n){
+		while (successor.size() != n) {
 			successor.push_back(0);
 		}
-//		cout<<"Think this condition is fixed"<<endl;
-//		printBoard(successor);
+		//		cout<<"Think this condition is fixed"<<endl;
+		//		printBoard(successor);
 		while (!(isLegalPosition(successor, n))) {
 			successor = SUCCESSOR(successor, n);
-//			printBoard(successor);
+			//			printBoard(successor);
 		}
 	}
 	return successor;
@@ -154,8 +190,8 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 		}
 	}
 
-//	cout<<lastQueenRow<<endl;
-//	cout<<lastQueenCol<<endl;
+	//	cout<<lastQueenRow<<endl;
+	//	cout<<lastQueenCol<<endl;
 
 	for (int i = 0; i < n; i++) { // copy the contents before last queen
 		if (i < lastQueenRow) {
@@ -170,7 +206,7 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 			successor[i] = 0;
 		}
 	} else if (lastQueenCol == n) {
-		successor=SUCCESSOR(successor,n);
+		successor = SUCCESSOR(successor, n);
 	} else {
 		successor[lastQueenRow] = lastQueenCol + 1;
 	}
@@ -213,6 +249,28 @@ bool intersectDiagonally(vector<int> board) {
 		}
 	}
 	return intersect;
+}
+
+bool noNegativeValue(vector<int> board, int n) {
+	bool result = true;
+	for (int i = 0; i < n; i++) {
+		if (board[i] < 0) {
+			result = false;
+			break;
+		}
+	}
+	return result;
+}
+
+bool noExplosiveValues(vector<int> board, int n) {
+	bool result = true;
+	for (int i = 0; i < n; i++) {
+		if (board[i] > 99999) {
+			result = false;
+			break;
+		}
+	}
+	return result;
 }
 
 /*
