@@ -19,7 +19,7 @@ int getNumOfQueens(vector<int> board);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 1, 6, 8, 3, 7, 0, 0, 0 };//{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
+	vector<int> board = { 1, 1, 0, 0, 0, 0, 0, 0 };//{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
@@ -38,6 +38,27 @@ int main() {
 	printBoard(nextLegalBoard);
 
 	//PART3
+	//Question 3
+	for (int i = 4; i <= 100; i++) {
+		vector<int> newBoard;
+		for (int j = 0; j < i; j++) {
+			if(j==0){
+				newBoard.push_back(1);
+			}
+			else{
+				newBoard.push_back(0);
+			}
+		}
+		int numOfQueens = getNumOfQueens(newBoard);
+		while (numOfQueens != i) {
+			newBoard = nextLegalPosition(newBoard, i);
+			numOfQueens = getNumOfQueens(newBoard);
+		}
+		cout << "First board solution n = " << i << " is " << endl;
+		printBoard(newBoard);
+	}
+
+
 }
 
 /*
@@ -64,7 +85,7 @@ bool isLegalPosition(vector<int> board, int n) {
 vector<int> nextLegalPosition(vector<int> board, int n) {
 	vector<int> successor;
 	int size = board.size();
-	 //works
+	//works
 	if (!isLegalPosition(board, n)) { // board is illegal, make last queen legal
 		successor = SUCCESSOR(board, n);
 		while(!(isLegalPosition(successor,n))){ //until i get the legal successor
@@ -79,11 +100,11 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 		}
 		//works well
 	} else if (isLegalPosition(board, n)) { //board is legal
-//		successor=board;
-//		successor.push_back(1);
-//		while(!(isLegalPosition(board,n))){
-//			successor=SUCCESSOR(successor,n);
-//		}
+		//		successor=board;
+		//		successor.push_back(1);
+		//		while(!(isLegalPosition(board,n))){
+		//			successor=SUCCESSOR(successor,n);
+		//		}
 		for(int i = 0; i < size; i++){
 			if(board[i] != 0){
 				successor.push_back(board[i]);
@@ -95,11 +116,11 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 		while(successor.size() != n){
 			successor.push_back(0);
 		}
-		cout<<"Think this condition is fixed"<<endl;
-		printBoard(successor);
+//		cout<<"Think this condition is fixed"<<endl;
+//		printBoard(successor);
 		while (!(isLegalPosition(successor, n))) {
 			successor = SUCCESSOR(successor, n);
-			printBoard(successor);
+//			printBoard(successor);
 		}
 	}
 	return successor;
@@ -133,8 +154,8 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 		}
 	}
 
-	cout<<lastQueenRow<<endl;
-	cout<<lastQueenCol<<endl;
+//	cout<<lastQueenRow<<endl;
+//	cout<<lastQueenCol<<endl;
 
 	for (int i = 0; i < n; i++) { // copy the contents before last queen
 		if (i < lastQueenRow) {
@@ -199,8 +220,8 @@ bool intersectDiagonally(vector<int> board) {
  */
 void printBoard(vector<int> board) {
 	int boardSize = board.size();
-//	cout << "Board size is " << boardSize << endl;
-//	cout << "board looks like" << endl;
+	//	cout << "Board size is " << boardSize << endl;
+	//	cout << "board looks like" << endl;
 	for (int i = 0; i < boardSize; i++) {
 		cout << board[i] << " ";
 	}
