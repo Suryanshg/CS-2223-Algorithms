@@ -19,19 +19,15 @@ int getNumOfQueens(vector<int> board);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 2, 4, 6, 1, 3, 5 }; //{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
+	vector<int> board = { 2, 4, 6, 1, 3, 5 };
 	int n = board.size();
-	cout << "Initial board" << endl;
-	printBoard(board);
+
 	//Question 1
 	bool legPos = isLegalPosition(board, n);
 	string result = (legPos == 1) ? "True" : "False";
 	cout << "IsLegalPosition result is " << result << endl;
 
 	//Question 2
-	vector<int> successorBoard = SUCCESSOR(board, n);
-	cout << "Successor of board is  " << endl;
-	printBoard(successorBoard);
 
 	vector<int> nextLegalBoard = nextLegalPosition(board, n);
 	cout << "Next legal board is  " << endl;
@@ -80,7 +76,8 @@ int main() {
 }
 
 /*
- *
+ * Determines whether the board and the number of queens passed is a legal position where no queens are attacking each other
+ * If a queen can attack another queen return false. Else, return true.
  */
 bool isLegalPosition(vector<int> board, int n) {
 	bool result = true;
@@ -97,6 +94,10 @@ bool isLegalPosition(vector<int> board, int n) {
 	return result;
 }
 
+/*
+ * Inputs a board and determines whether queens share the same column
+ * If more than one queen share a column, return true. Else, return false.
+ */
 bool hasDuplicate(vector<int> board) {
 	bool result = false;
 	int size = board.size();
@@ -112,7 +113,8 @@ bool hasDuplicate(vector<int> board) {
 }
 
 /*
- *
+ *Inputs a board and determines if more than one queen share a diagonal. If a queen share a
+ *diagonal, return true. Else, return false.
  */
 bool intersectDiagonally(vector<int> board) {
 	bool intersect = false;
@@ -131,7 +133,7 @@ bool intersectDiagonally(vector<int> board) {
 }
 
 /*
- *
+ *Determined
  */
 vector<int> nextLegalPosition(vector<int> board, int n) {
 	vector<int> successor = SUCCESSOR(board, n);

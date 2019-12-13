@@ -11482,3 +11482,85 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2019-12-12 19:29:20.654 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=13.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-12-12 19:30:07.978
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex Galvan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-12 22:48:40.077
+!MESSAGE Indexed 'HW6Question3' (1 sources, 0 headers) in 0 sec: 1 declarations; 0 references; 1 unresolved inclusions; 0 syntax errors; 3 unresolved names (75%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-12-12 22:49:00.940
+!MESSAGE Indexed 'HW6Question4' (1 sources, 124 headers) in 4.68 sec: 13,580 declarations; 21,351 references; 0 unresolved inclusions; 0 syntax errors; 2 unresolved names (0.0057%)
+
+!ENTRY org.eclipse.cdt.core 4 0 2019-12-12 23:05:21.696
+!MESSAGE Error: Trying to access template arguments before they have been stored.
+!STACK 0
+java.lang.IllegalArgumentException: Trying to access template arguments before they have been stored.
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPArgumentList.getArguments(PDOMCPPArgumentList.java:76)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPClassInstance.getTemplateArguments(PDOMCPPClassInstance.java:85)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMInstanceCache.populate(PDOMInstanceCache.java:93)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMInstanceCache.getCache(PDOMInstanceCache.java:44)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPClassTemplate.getInstance(PDOMCPPClassTemplate.java:273)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.getInstance(CPPTemplates.java:465)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.instantiate(CPPTemplates.java:291)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.instantiate(CPPTemplates.java:259)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.resolveDeferredClassInstance(CPPTemplates.java:3206)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.resolveUnknown(CPPTemplates.java:3109)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.instantiateBinding(CPPTemplates.java:1792)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.instantiateBinding(CPPTemplates.java:1797)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPEvaluation.instantiateBinding(CPPEvaluation.java:100)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.EvalBinding.instantiate(EvalBinding.java:477)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPDependentEvaluation.instantiateExpressions(CPPDependentEvaluation.java:153)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.EvalFunctionCall.instantiate(EvalFunctionCall.java:234)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.EvalBinary.instantiate(EvalBinary.java:439)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.ExecReturn.instantiate(ExecReturn.java:30)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.ExecCompoundStatement.instantiate(ExecCompoundStatement.java:47)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.instantiateFunctionBody(CPPTemplates.java:3329)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunctionSpecialization.getFunctionBodyExecution(CPPFunctionSpecialization.java:342)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getFunctionBodyExecution(CPPFunction.java:756)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage$ConfigureFunctionSpecialization.<init>(PDOMCPPLinkage.java:359)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPFunctionSpecialization.<init>(PDOMCPPFunctionSpecialization.java:86)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPMethodSpecialization.<init>(PDOMCPPMethodSpecialization.java:49)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage.createSpecialization(PDOMCPPLinkage.java:994)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage.createBinding(PDOMCPPLinkage.java:787)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage.addBinding(PDOMCPPLinkage.java:706)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage.addTypeBinding(PDOMCPPLinkage.java:1606)
+	at org.eclipse.cdt.internal.core.pdom.dom.TypeMarshalBuffer.marshalBinding(TypeMarshalBuffer.java:92)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.EvalBinding.marshal(EvalBinding.java:403)
+	at org.eclipse.cdt.internal.core.pdom.dom.TypeMarshalBuffer.marshalEvaluation(TypeMarshalBuffer.java:169)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.EvalFunctionCall.marshal(EvalFunctionCall.java:215)
+	at org.eclipse.cdt.internal.core.pdom.dom.TypeMarshalBuffer.marshalEvaluation(TypeMarshalBuffer.java:169)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunctionType.marshal(CPPFunctionType.java:172)
+	at org.eclipse.cdt.internal.core.pdom.dom.TypeMarshalBuffer.marshalType(TypeMarshalBuffer.java:135)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.storeType(PDOMLinkage.java:468)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.storeType(PDOMLinkage.java:462)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPFunctionSpecialization.setType(PDOMCPPFunctionSpecialization.java:141)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPFunctionSpecialization.initData(PDOMCPPFunctionSpecialization.java:97)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage$ConfigureFunctionSpecialization.run(PDOMCPPLinkage.java:368)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage.handlePostProcesses(PDOMCPPLinkage.java:1302)
+	at org.eclipse.cdt.internal.core.pdom.dom.cpp.PDOMCPPLinkage.addBinding(PDOMCPPLinkage.java:634)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMFile.createPDOMName(PDOMFile.java:522)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMFile.addNames(PDOMFile.java:488)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.addFileContent(WritablePDOM.java:158)
+	at org.eclipse.cdt.internal.core.index.WritableCIndex.setFileContent(WritableCIndex.java:89)
+	at org.eclipse.cdt.internal.core.pdom.PDOMWriter.storeFileInIndex(PDOMWriter.java:679)
+	at org.eclipse.cdt.internal.core.pdom.PDOMWriter.storeSymbolsInIndex(PDOMWriter.java:329)
+	at org.eclipse.cdt.internal.core.pdom.PDOMWriter.addSymbols(PDOMWriter.java:287)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.writeToIndex(AbstractIndexerTask.java:1295)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1107)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:910)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:572)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:164)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:160)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

@@ -21,7 +21,7 @@ bool noExplosiveValues(vector<int> board, int n);
 void printBoard(vector<int> board);
 
 int main() {
-	vector<int> board = { 0, 0, 0, 0, 0, 0 }; //{8,8,0,0,0,0,0,0};//{ 1, 6, 8, 3, 7, 4, 2, 5 }; // { 1, 6, 8, 3, 7, 0, 0, 0 }; // works{ 1, 6, 8, 3, 5, 0, 0, 0 };
+	vector<int> board = { 1, 4, 0, 0, 0, 0 };
 	int n = board.size();
 	cout << "Initial board" << endl;
 	printBoard(board);
@@ -41,24 +41,23 @@ int main() {
 
 	//PART3
 	//Question 3
-//		for (int i = 4; i <= 100; i++) {
-//			vector<int> newBoard;
-//			for (int j = 0; j < i; j++) {
-//				if(j==0){
-//					newBoard.push_back(1);
-//				}
-//				else{
-//					newBoard.push_back(0);
-//				}
-//			}
-//			int numOfQueens = getNumOfQueens(newBoard);
-//			while (numOfQueens != i) {
-//				newBoard = nextLegalPosition(newBoard, i);
-//				numOfQueens = getNumOfQueens(newBoard);
-//			}
-//			cout << "First board solution n = " << i << " is " << endl;
-//			printBoard(newBoard);
-//		}
+	for (int i = 4; i <= 100; i++) {
+		vector<int> newBoard;
+		for (int j = 0; j < i; j++) {
+			if (j == 0) {
+				newBoard.push_back(1);
+			} else {
+				newBoard.push_back(0);
+			}
+		}
+		int numOfQueens = getNumOfQueens(newBoard);
+		while (numOfQueens != i) {
+			newBoard = nextLegalPosition(newBoard, i);
+			numOfQueens = getNumOfQueens(newBoard);
+		}
+		cout << "First board solution n = " << i << " is " << endl;
+		printBoard(newBoard);
+	}
 
 	//Question 4
 
@@ -80,14 +79,12 @@ int main() {
 		}
 		while (newBoard != emptyBoard) {
 			numOfQueens = getNumOfQueens(newBoard);
-//			printBoard(newBoard);
 			if (numOfQueens == i && isLegalPosition(newBoard, i)
 					&& (newBoard != previousBoard)
 					&& (noNegativeValue(newBoard, i))
-					&& (noExplosiveValues(newBoard, i))) { // as good as it'll get
+					&& (noExplosiveValues(newBoard, i))) {
 				count++;
 				previousBoard = newBoard;
-//					printBoard(newBoard);
 			}
 			newBoard = nextLegalPosition(newBoard, i);
 		}
@@ -98,7 +95,8 @@ int main() {
 }
 
 /*
- *
+ * Determines whether the board and the number of queens passed is a legal position where no queens are attacking each other
+ * If a queen can attack another queen return false. Else, return true.
  */
 bool isLegalPosition(vector<int> board, int n) {
 	bool result = true;
@@ -116,7 +114,9 @@ bool isLegalPosition(vector<int> board, int n) {
 }
 
 /*
- *
+ *Determines the next legal position based on the input board
+ *Inputs board and number of queens and returns a board with its
+ *next legal position
  */
 vector<int> nextLegalPosition(vector<int> board, int n) {
 	vector<int> successor;
@@ -136,11 +136,6 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 		}
 		//works well
 	} else if (isLegalPosition(board, n)) { //board is legal
-		//		successor=board;
-		//		successor.push_back(1);
-		//		while(!(isLegalPosition(board,n))){
-		//			successor=SUCCESSOR(successor,n);
-		//		}
 		for (int i = 0; i < size; i++) {
 			if (board[i] != 0) {
 				successor.push_back(board[i]);
@@ -152,16 +147,16 @@ vector<int> nextLegalPosition(vector<int> board, int n) {
 		while (successor.size() != n) {
 			successor.push_back(0);
 		}
-		//		cout<<"Think this condition is fixed"<<endl;
-		//		printBoard(successor);
 		while (!(isLegalPosition(successor, n))) {
 			successor = SUCCESSOR(successor, n);
-			//			printBoard(successor);
 		}
 	}
 	return successor;
 }
 
+/*
+ * returns the number of queens that are within a board
+ */
 int getNumOfQueens(vector<int> board) {
 	int size = board.size();
 	int numOfQueens = 0;
@@ -176,7 +171,8 @@ int getNumOfQueens(vector<int> board) {
 }
 
 /*
- *
+ *Determines the next position of the board
+ *Inputs a board and the number of queens
  */
 vector<int> SUCCESSOR(vector<int> board, int n) {
 	vector<int> successor;
@@ -189,9 +185,6 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 			break;
 		}
 	}
-
-	//	cout<<lastQueenRow<<endl;
-	//	cout<<lastQueenCol<<endl;
 
 	for (int i = 0; i < n; i++) { // copy the contents before last queen
 		if (i < lastQueenRow) {
@@ -210,13 +203,12 @@ vector<int> SUCCESSOR(vector<int> board, int n) {
 	} else {
 		successor[lastQueenRow] = lastQueenCol + 1;
 	}
-
 	return successor;
-
 }
 
 /*
- *
+ * Inputs a board and determines whether queens share the same column
+ * If more than one queen share a column, return true. Else, return false.
  */
 bool hasDuplicate(vector<int> board) {
 	bool result = false;
@@ -233,7 +225,8 @@ bool hasDuplicate(vector<int> board) {
 }
 
 /*
- *
+ *Inputs a board and determines if more than one queen share a diagonal. If a queen share a
+ *diagonal, return true. Else, return false.
  */
 bool intersectDiagonally(vector<int> board) {
 	bool intersect = false;
@@ -251,6 +244,10 @@ bool intersectDiagonally(vector<int> board) {
 	return intersect;
 }
 
+/*
+ * Make sure that the values produced within the board do not have negative numbers.
+ * If a board has a negative number within the board, return true. Else, return false
+ */
 bool noNegativeValue(vector<int> board, int n) {
 	bool result = true;
 	for (int i = 0; i < n; i++) {
@@ -262,6 +259,10 @@ bool noNegativeValue(vector<int> board, int n) {
 	return result;
 }
 
+/*
+ * Make sure that the values produced within the board do not have numbers bigger than a million.
+ * If there are no huge numbers, return true. Else, return false
+ */
 bool noExplosiveValues(vector<int> board, int n) {
 	bool result = true;
 	for (int i = 0; i < n; i++) {
@@ -274,12 +275,10 @@ bool noExplosiveValues(vector<int> board, int n) {
 }
 
 /*
- *
+ *Prints out the board produced
  */
 void printBoard(vector<int> board) {
 	int boardSize = board.size();
-	//	cout << "Board size is " << boardSize << endl;
-	//	cout << "board looks like" << endl;
 	for (int i = 0; i < boardSize; i++) {
 		cout << board[i] << " ";
 	}
