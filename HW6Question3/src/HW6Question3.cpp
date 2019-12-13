@@ -250,3 +250,19 @@ void printBoard(vector<int> board) {
 	}
 	cout << endl;
 }
+
+
+/*
+ * Question 2: Will the next legal position from a legal position always add a Queen to the next rank?
+ *
+ * A queen will not always be added to the next rank. Two situations that a queen will not be added
+ * to the next rank is when the queen is already on the last row. If this is the case, queens in front
+ * of the last rank will need to be removed. Also, some legal positions will not be able to add a queen
+ * to the next row, so the next legal move will involve either increasing the last possible queen, or
+ * check back to find a queen that can be incremented.
+ *
+ * Question 3: Is our solution to the 8-Queens problem the first one?
+ *
+ * This solution (1 6 8 3 7 4 2 5) is not the first solution to the 8-Queens problem.
+ * The first solution to the 8-Queens problem is (1 5 8 6 3 7 2 4)
+ */
